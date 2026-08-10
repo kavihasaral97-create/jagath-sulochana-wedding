@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jagath & Sulochana | Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#f8f4ee;
+    color:#333;
+    overflow-x:hidden;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    background:
+    linear-gradient(rgba(255,255,255,.72),rgba(255,255,255,.72)),
+    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero-content{
+    padding:30px;
+    animation:fadeIn 2s ease;
+}
+
+.small{
+    letter-spacing:5px;
+    font-size:13px;
+    text-transform:uppercase;
+    color:#9a7b4f;
+    margin-bottom:25px;
+}
+
+.names{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(55px,13vw,105px);
+    line-height:.9;
+    font-weight:500;
+    color:#302820;
+}
+
+.amp{
+    font-size:45px;
+    color:#b28b57;
+    margin:20px 0;
+}
+
+.date{
+    margin-top:30px;
+    font-size:15px;
+    letter-spacing:4px;
+    color:#6d5a43;
+}
+
+.scroll{
+    margin-top:55px;
+    font-size:11px;
+    letter-spacing:3px;
+    color:#777;
+}
+
+section{
+    padding:90px 25px;
+    text-align:center;
+}
+
+.section-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:48px;
+    font-weight:500;
+    color:#493b2d;
+}
+
+.line{
+    width:70px;
+    height:1px;
+    background:#b28b57;
+    margin:20px auto 35px;
+}
+
+.message{
+    max-width:650px;
+    margin:auto;
+    line-height:2;
+    color:#666;
+    font-size:15px;
+}
+
+.details{
+    background:#fff;
+}
+
+.detail-grid{
+    max-width:850px;
+    margin:45px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    padding:35px 15px;
+    border:1px solid #e3d7c7;
+    background:#fffdf9;
+}
+
+.icon{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;
+    font-weight:500;
+    margin-bottom:10px;
+    color:#493b2d;
+}
+
+.card p{
+    color:#777;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.countdown{
+    background:#eee7dc;
+}
+
+.timer{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.time-box{
+    min-width:90px;
+    padding:20px 10px;
+    background:white;
+}
+
+.time-box strong{
+    display:block;
+    font-family:'Cormorant Garamond',serif;
+    font-size:38px;
+    color:#8d6d45;
+}
+
+.time-box span{
+    font-size:10px;
+    letter-spacing:2px;
+    color:#777;
+}
+
+.map-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 30px;
+    border:1px solid #a88659;
+    color:#765a37;
+    text-decoration:none;
+    font-size:12px;
+    letter-spacing:2px;
+    transition:.3s;
+}
+
+.map-btn:hover{
+    background:#a88659;
+    color:white;
+}
+
+.footer{
+    padding:70px 20px;
+    background:#302820;
+    color:white;
+    text-align:center;
+}
+
+.footer .names{
+    color:white;
+    font-size:50px;
+}
+
+.footer p{
+    margin-top:20px;
+    font-size:11px;
+    letter-spacing:3px;
+    color:#d6c6af;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:650px){
+    .detail-grid{
+        grid-template-columns:1fr;
+        max-width:400px;
+    }
+
+    section{
+        padding:70px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- OPENING -->
+<div class="hero">
+    <div class="hero-content">
+
+        <div class="small">Together with their families</div>
+
+        <div class="names">
+            Jagath
+            <div class="amp">&</div>
+            Sulochana
+        </div>
+
+        <div class="date">
+            21 • OCTOBER • 2026
+        </div>
+
+        <div class="scroll">
+            SCROLL TO DISCOVER
+        </div>
+
+    </div>
+</div>
+
+<!-- INVITATION -->
+<section>
+    <div class="small">Wedding Invitation</div>
+
+    <h2 class="section-title">
+        We are getting married
+    </h2>
+
+    <div class="line"></div>
+
+    <p class="message">
+        With joyful hearts and the blessings of our families,
+        we invite you to celebrate the beginning of our
+        beautiful journey together.
+
+        Your presence will make our special day even more memorable.
+    </p>
+</section>
+
+<!-- DETAILS -->
+<section class="details">
+
+    <div class="small">Save the Date</div>
+
+    <h2 class="section-title">
+        Our Special Day
+    </h2>
+
+    <div class="line"></div>
+
+    <div class="detail-grid">
+
+        <div class="card">
+            <div class="icon">💍</div>
+            <h3>Wedding</h3>
+            <p>
+                Wednesday<br>
+                21st October 2026
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">♥</div>
+            <h3>Celebration</h3>
+            <p>
+                A beautiful beginning<br>
+                of our forever
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📍</div>
+            <h3>Venue</h3>
+            <p>
+                Venue details<br>
+                coming soon
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown">
+
+    <div class="small">Counting the moments</div>
+
+    <h2 class="section-title">
+        Until We Say “I Do”
+    </h2>
+
+    <div class="line"></div>
+
+    <div class="timer">
+
+        <div class="time-box">
+            <strong id="days">0</strong>
+            <span>DAYS</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="hours">0</strong>
+            <span>HOURS</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="minutes">0</strong>
+            <span>MINUTES</span>
+        </div>
+
+        <div class="time-box">
+            <strong id="seconds">0</strong>
+            <span>SECONDS</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LOCATION -->
+<section>
+
+    <div class="small">Join us</div>
+
+    <h2 class="section-title">
+        We Can't Wait To See You
+    </h2>
+
+    <div class="line"></div>
+
+    <p class="message">
+        More wedding details and venue information
+        will be added soon.
+    </p>
+
+    <a class="map-btn"
+       href="https://maps.google.com"
+       target="_blank">
+       OPEN GOOGLE MAPS
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+
+    <div class="names">
+        Jagath & Sulochana
+    </div>
+
+    <p>
+        21 OCTOBER 2026 • OUR FOREVER BEGINS
+    </p>
+
+</div>
+
+<script>
+
+const weddingDate = new Date("October 21, 2026 10:00:00").getTime();
+
+function countdown(){
+
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if(distance <= 0){
+        document.getElementById("days").innerHTML = "0";
+        document.getElementById("hours").innerHTML = "0";
+        document.getElementById("minutes").innerHTML = "0";
+        document.getElementById("seconds").innerHTML = "0";
+        return;
+    }
+
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+    const seconds = Math.floor((distance % (1000*60))/1000);
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+}
+
+countdown();
+setInterval(countdown,1000);
+
+</script>
+
+</body>
+</html>
