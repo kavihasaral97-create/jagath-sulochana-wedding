@@ -24,14 +24,14 @@ body{
     overflow-x:hidden;
 }
 
-/* FINGERPRINT SCREEN */
+/* FINGERPRINT LOCK SCREEN */
 #gatekeeper{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100vh;
-    background:linear-gradient(135deg, #2b2118 0%, #4a3b2c 100%);
+    background:linear-gradient(135deg, #1f1812 0%, #3d2f23 100%);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -63,7 +63,6 @@ body{
     margin-bottom:50px;
 }
 
-/* Fingerprint Icon Container */
 .fingerprint-btn{
     width:90px;
     height:90px;
@@ -114,7 +113,7 @@ body{
     text-align:center;
     position:relative;
     background:
-    linear-gradient(rgba(255,255,255,.78),rgba(255,255,255,.78)),
+    linear-gradient(rgba(255,255,255,.82),rgba(255,255,255,.82)),
     url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop");
     background-size:cover;
     background-position:center;
@@ -132,12 +131,12 @@ body{
     font-size:13px;
     text-transform:uppercase;
     color:#9a7b4f;
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
 .names{
     font-family:'Cormorant Garamond',serif;
-    font-size:clamp(55px,13vw,105px);
+    font-size:clamp(55px,13vw,100px);
     line-height:.9;
     font-weight:500;
     color:#302820;
@@ -146,68 +145,72 @@ body{
 .amp{
     font-size:45px;
     color:#b28b57;
-    margin:15px 0;
+    margin:10px 0;
 }
 
 .date{
-    margin-top:25px;
+    margin-top:20px;
     font-size:15px;
     letter-spacing:4px;
     color:#6d5a43;
 }
 
-/* COUPLE ANIMATION VECTOR */
-.couple-container{
-    margin-top:20px;
-    height:140px;
+/* WEDDING COUPLE VECTOR ANIMATION CONTAINER */
+.couple-stage{
+    margin-top:25px;
+    height:220px;
     position:relative;
-    width:280px;
+    width:320px;
     display:flex;
     justify-content:center;
     align-items:flex-end;
     z-index:2;
 }
 
-.groom-svg, .bride-svg{
-    width:65px;
-    height:110px;
+.groom-wrapper, .bride-wrapper{
     position:absolute;
-    transition:transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+    bottom:0;
+    transition:transform 2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.groom-svg{
-    transform:translateX(-120px);
+.groom-wrapper{
+    transform:translateX(-140px);
 }
 
-.bride-svg{
-    transform:translateX(120px);
+.bride-wrapper{
+    transform:translateX(140px);
 }
 
-/* When gate opens, bring couple together */
-body.opened .groom-svg{
-    transform:translateX(-18px);
+/* When Gatekeeper Opens, Walk Together */
+body.opened .groom-wrapper{
+    transform:translateX(-25px);
 }
 
-body.opened .bride-svg{
-    transform:translateX(18px);
+body.opened .bride-wrapper{
+    transform:translateX(25px);
 }
 
-.heart-pop{
+.couple-img{
+    height:190px;
+    filter:drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+}
+
+.love-heart{
     position:absolute;
     top:10px;
-    font-size:24px;
+    font-size:32px;
     opacity:0;
     transform:scale(0);
-    transition:transform 0.8s ease 1.5s, opacity 0.8s ease 1.5s;
+    transition:transform 0.8s ease 1.8s, opacity 0.8s ease 1.8s;
 }
 
-body.opened .heart-pop{
+body.opened .love-heart{
     opacity:1;
     transform:scale(1.2);
 }
 
 .scroll{
-    margin-top:30px;
+    margin-top:25px;
     font-size:11px;
     letter-spacing:3px;
     color:#777;
@@ -372,14 +375,8 @@ section{
 }
 
 @keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{ opacity:0; transform:translateY(30px); }
+    to{ opacity:1; transform:translateY(0); }
 }
 
 @media(max-width:768px){
@@ -411,7 +408,7 @@ section{
     <div class="touch-hint">TOUCH FINGERPRINT TO OPEN</div>
 </div>
 
-<!-- MAIN HERO -->
+<!-- MAIN HERO SECTION -->
 <div class="hero">
     <div class="hero-content">
 
@@ -429,19 +426,53 @@ section{
 
     </div>
 
-    <!-- COUPLE VECTOR ANIMATION -->
-    <div class="couple-container">
-        <div class="heart-pop">💖</div>
-        
-        <!-- Groom Silhouette -->
-        <svg class="groom-svg" viewBox="0 0 100 200">
-            <path fill="#403225" d="M50 20 a15 15 0 1 0 0.1 0 M35 50 c-5 0-10 10-10 25 l5 65 h12 l3 -45 h10 l3 45 h12 l5 -65 c0 -15 -5 -25 -10 -25 z"/>
-        </svg>
+    <!-- KANDYAN TRADITIONAL WEDDING COUPLE ANIMATION -->
+    <div class="couple-stage">
+        <div class="love-heart">💖</div>
 
-        <!-- Bride Silhouette -->
-        <svg class="bride-svg" viewBox="0 0 100 200">
-            <path fill="#8d6d45" d="M50 22 a13 13 0 1 0 0.1 0 M40 50 c-5 0-8 8-8 18 l-12 72 h60 l-12 -72 c0 -10 -3 -18 -8 -18 z"/>
-        </svg>
+        <!-- Groom (Kandyan Nilame Attire SVG) -->
+        <div class="groom-wrapper">
+            <svg class="couple-img" viewBox="0 0 120 220">
+                <!-- Crown / Mul Aduma Crown -->
+                <path d="M45 25 L60 5 L75 25 L68 28 L60 18 L52 28 Z" fill="#D4AF37"/>
+                <circle cx="60" cy="8" r="3" fill="#B22222"/>
+                <!-- Head -->
+                <circle cx="60" cy="38" r="14" fill="#E8BEAC"/>
+                <!-- Royal Jacket (Nilame Jacket) -->
+                <path d="M35 55 Q60 48 85 55 L90 115 Q60 120 30 115 Z" fill="#8B0000"/>
+                <!-- Gold Embroidery on Jacket -->
+                <path d="M60 52 L60 118 M45 60 L75 60 M40 80 L80 80 M42 100 L78 100" stroke="#D4AF37" stroke-width="2.5"/>
+                <!-- Shoulders Structure -->
+                <path d="M30 55 C20 60 20 75 35 75 Z" fill="#D4AF37"/>
+                <path d="M90 55 C100 60 100 75 85 75 Z" fill="#D4AF37"/>
+                <!-- Traditional Tufted Sarong / Pants (Tuppettiya) -->
+                <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#FFFDF0" stroke="#D4AF37" stroke-width="2"/>
+                <!-- Hand holding Bride -->
+                <path d="M85 85 Q98 105 108 120" stroke="#E8BEAC" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+        </div>
+
+        <!-- Bride (Kandyan Osari Bride SVG) -->
+        <div class="bride-wrapper">
+            <svg class="couple-img" viewBox="0 0 120 220">
+                <!-- Hair Bun with Flowers (Nalalpata) -->
+                <circle cx="60" cy="35" r="16" fill="#2B1B17"/>
+                <path d="M48 28 Q60 20 72 28" stroke="#D4AF37" stroke-width="3" fill="none"/>
+                <!-- Head -->
+                <circle cx="60" cy="40" r="13" fill="#F3D0C1"/>
+                <!-- Kandyan Osari Jacket & Frills (Nengettiya) -->
+                <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#FAF0E6"/>
+                <path d="M35 88 Q60 105 85 88" fill="#F5E6C8" stroke="#D4AF37" stroke-width="1.5"/>
+                <!-- Gold Jewellery Chains (Padakkam & Nalalpata) -->
+                <path d="M50 55 Q60 75 70 55 M46 62 Q60 85 74 62" stroke="#D4AF37" stroke-width="2" fill="none"/>
+                <!-- Saree / Osari Skirt (Gold & White) -->
+                <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#FAF0E6" stroke="#D4AF37" stroke-width="2"/>
+                <!-- Gold Embroidery Details -->
+                <path d="M45 120 Q60 200 75 120 M38 150 Q60 210 82 150" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
+                <!-- Hand holding Groom -->
+                <path d="M38 85 Q22 105 12 120" stroke="#F3D0C1" stroke-width="5" stroke-linecap="round"/>
+            </svg>
+        </div>
     </div>
 
     <div class="scroll">
