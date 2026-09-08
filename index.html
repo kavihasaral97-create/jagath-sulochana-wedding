@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://maps.app.goo.gl/gSmuFzjNPMy8fBdv5" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -140,8 +140,13 @@ section{
 
 .card p{
     color:#777;
-    font-size:13px;
+    font-size:14px;
     line-height:1.8;
+}
+
+.time-highlight{
+    color:#a88659;
+    font-weight:600;
 }
 
 .countdown{
@@ -303,10 +308,10 @@ section{
 <!-- DETAILS -->
 <section class="details">
 
-    <div class="small">Save the Date</div>
+    <div class="small">Program & Schedule</div>
 
     <h2 class="section-title">
-        Our Special Day
+        Wedding Ceremony Details
     </h2>
 
     <div class="line"></div>
@@ -315,29 +320,31 @@ section{
 
         <div class="card">
             <div class="icon">💍</div>
-            <h3>Wedding</h3>
+            <h3>Poruwa Ceremony</h3>
             <p>
                 Wednesday<br>
-                21st October 2026
+                21st October 2026<br>
+                <span class="time-highlight">9:14 AM</span>
             </p>
         </div>
 
         <div class="card">
-            <div class="icon">♥</div>
-            <h3>Celebration</h3>
+            <div class="icon">✍️</div>
+            <h3>Registration</h3>
             <p>
-                Poruwa Ceremony & Reception<br>
-                A beautiful beginning
+                Official Signing & Blessings<br>
+                21st October 2026<br>
+                <span class="time-highlight">10:19 AM</span>
             </p>
         </div>
 
         <div class="card">
-            <div class="icon">📍</div>
-            <h3>Venue</h3>
+            <div class="icon">🍽️</div>
+            <h3>Reception</h3>
             <p>
-                <strong>Marabedda Gardens Resort</strong><br>
-                58 Dimbulkumbura Road,<br>
-                Rikillagaskada 20730
+                Celebration & Lunch<br>
+                21st October 2026<br>
+                <span class="time-highlight">10:40 AM Onwards</span>
             </p>
         </div>
 
@@ -429,7 +436,7 @@ section{
 
 <script>
 
-const weddingDate = new Date("October 21, 2026 10:00:00").getTime();
+const weddingDate = new Date("October 21, 2026 09:14:00").getTime();
 
 function countdown(){
 
