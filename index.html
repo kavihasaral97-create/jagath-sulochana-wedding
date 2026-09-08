@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Updated Fonts for Royal & Elegant Look -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@600;700&family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+Sinhala:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 *{
@@ -18,22 +20,24 @@
 }
 
 body{
-    font-family:'Montserrat',sans-serif;
-    background:#0d0d0d;
-    color:#e0e0e0;
+    font-family: 'Cormorant Garamond', 'Noto Serif Sinhala', serif;
+    background:#4a000b; /* Red Theme Background */
+    color:#fff5c0;
     overflow-x:hidden;
 }
 
-/* GOLD GRADIENTS & ACCENTS */
+/* RED & GOLD THEME WITH BORDER */
 .gold-text{
     background: linear-gradient(135deg, #d4af37 0%, #fff5c0 50%, #aa7c11 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.gold-border{
-    border: 1px solid #d4af37;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+.page-border {
+    border: 3px solid #d4af37;
+    outline: 2px solid #d4af37;
+    outline-offset: -8px;
+    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.3), 0 0 20px rgba(0,0,0,0.6);
 }
 
 /* FINGERPRINT LOCK SCREEN */
@@ -43,7 +47,7 @@ body{
     left:0;
     width:100%;
     height:100vh;
-    background:radial-gradient(circle, #1a1a1a 0%, #050505 100%);
+    background:radial-gradient(circle, #720010 0%, #2b0006 100%);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -60,8 +64,8 @@ body{
 }
 
 .gate-names{
-    font-family:'Cinzel',serif;
-    font-size:38px;
+    font-family:'Cinzel Decorative', serif;
+    font-size:32px;
     margin-bottom:10px;
     letter-spacing:2px;
 }
@@ -97,7 +101,7 @@ body{
 
 .touch-hint{
     margin-top:25px;
-    color:#888;
+    color:#ffd700;
     font-size:12px;
     letter-spacing:2px;
     animation:blink 1.5s infinite;
@@ -123,7 +127,7 @@ body{
     align-items:center;
     text-align:center;
     position:relative;
-    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+    background: linear-gradient(rgba(74, 0, 11, 0.85), rgba(43, 0, 6, 0.9)),
     url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop");
     background-size:cover;
     background-position:center;
@@ -138,30 +142,44 @@ body{
 
 .small{
     letter-spacing:5px;
-    font-size:12px;
+    font-size:14px;
     text-transform:uppercase;
     color:#d4af37;
     margin-bottom:20px;
 }
 
 .names{
-    font-family:'Cinzel',serif;
-    font-size:clamp(45px,11vw,90px);
-    line-height:1.1;
+    font-family:'Cinzel Decorative', serif;
+    font-size:clamp(35px, 8vw, 75px);
+    line-height:1.2;
     font-weight:700;
 }
 
 .amp{
-    font-size:40px;
+    font-size:35px;
     color:#d4af37;
     margin:10px 0;
 }
 
 .date{
     margin-top:20px;
-    font-size:14px;
+    font-size:16px;
     letter-spacing:5px;
-    color:#cccccc;
+    color:#fff5c0;
+}
+
+/* ICON ANIMATIONS */
+.animated-icon {
+    font-size: 32px;
+    color: #d4af37;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 2px #d4af37); }
+    50% { transform: translateY(-8px) scale(1.15); filter: drop-shadow(0 0 8px #d4af37); }
 }
 
 /* WEDDING COUPLE VECTOR ANIMATION CONTAINER */
@@ -215,19 +233,23 @@ body.opened .love-heart{
 
 .scroll{
     margin-top:25px;
-    font-size:11px;
+    font-size:12px;
     letter-spacing:3px;
-    color:#777;
+    color:#d4af37;
 }
 
 section{
-    padding:90px 25px;
+    padding:80px 25px;
     text-align:center;
+    margin: 20px auto;
+    max-width: 1000px;
+    background: #5c000e;
+    border-radius: 10px;
 }
 
 .section-title{
-    font-family:'Cinzel',serif;
-    font-size:40px;
+    font-family:'Cinzel Decorative', serif;
+    font-size:32px;
     font-weight:600;
 }
 
@@ -242,12 +264,12 @@ section{
     max-width:650px;
     margin:auto;
     line-height:2;
-    color:#b3b3b3;
-    font-size:15px;
+    color:#fff5c0;
+    font-size:18px;
 }
 
 .details{
-    background:#121212;
+    background:#5c000e;
 }
 
 .detail-grid{
@@ -260,8 +282,8 @@ section{
 
 .card{
     padding:35px 20px;
-    border:1px solid rgba(212, 175, 55, 0.3);
-    background:#1a1a1a;
+    border:1px solid rgba(212, 175, 55, 0.4);
+    background:#3d0009;
     border-radius:8px;
     transition:transform 0.3s, border-color 0.3s;
 }
@@ -269,36 +291,27 @@ section{
 .card:hover{
     transform:translateY(-8px);
     border-color:#d4af37;
-    box-shadow:0 10px 25px rgba(212, 175, 55, 0.2);
-}
-
-.icon{
-    font-size:32px;
-    margin-bottom:15px;
+    box-shadow:0 10px 25px rgba(212, 175, 55, 0.3);
 }
 
 .card h3{
-    font-family:'Cinzel',serif;
-    font-size:24px;
+    font-family:'Cinzel Decorative', serif;
+    font-size:20px;
     margin-bottom:10px;
 }
 
 .card p{
-    color:#aaa;
-    font-size:14px;
+    color:#fff5c0;
+    font-size:16px;
     line-height:1.8;
 }
 
 .time-highlight{
     color:#d4af37;
-    font-weight:600;
+    font-weight:700;
 }
 
 /* COUNTDOWN */
-.countdown{
-    background:#080808;
-}
-
 .timer{
     display:flex;
     justify-content:center;
@@ -310,34 +323,30 @@ section{
 .time-box{
     min-width:90px;
     padding:20px 10px;
-    background:#141414;
-    border:1px solid rgba(212, 175, 55, 0.2);
+    background:#3d0009;
+    border:1px solid rgba(212, 175, 55, 0.3);
     border-radius:6px;
 }
 
 .time-box strong{
     display:block;
-    font-family:'Cinzel',serif;
-    font-size:36px;
+    font-family:'Cinzel Decorative', serif;
+    font-size:32px;
     color:#d4af37;
 }
 
 .time-box span{
-    font-size:10px;
+    font-size:11px;
     letter-spacing:2px;
-    color:#777;
+    color:#fff5c0;
 }
 
 /* PHOTO GALLERY */
-.gallery-section{
-    background:#121212;
-}
-
 .gallery-grid{
     max-width:1000px;
     margin:40px auto 0;
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
     gap:20px;
 }
 
@@ -345,8 +354,8 @@ section{
     position:relative;
     overflow:hidden;
     border-radius:8px;
-    border:1px solid rgba(212, 175, 55, 0.2);
-    height:320px;
+    border:2px solid #d4af37;
+    height:300px;
 }
 
 .gallery-item img{
@@ -361,23 +370,18 @@ section{
 }
 
 /* LOCATION / MAP */
-.venue-section{
-    background:#080808;
-}
-
 .map-container{
     max-width:850px;
     margin:30px auto;
     border-radius:12px;
     overflow:hidden;
-    border:1px solid rgba(212, 175, 55, 0.3);
+    border:2px solid #d4af37;
 }
 
 .map-container iframe{
     width:100%;
     height:380px;
     border:0;
-    filter:invert(90%) hue-rotate(180deg);
 }
 
 .map-btn{
@@ -385,9 +389,9 @@ section{
     margin-top:20px;
     padding:14px 32px;
     background:linear-gradient(135deg, #d4af37, #aa7c11);
-    color:#000;
+    color:#3d0009;
     text-decoration:none;
-    font-size:12px;
+    font-size:14px;
     letter-spacing:2px;
     border-radius:30px;
     transition:.3s;
@@ -400,16 +404,12 @@ section{
 }
 
 /* RSVP SECTION */
-.rsvp-section{
-    background:#121212;
-}
-
 .form-box{
     max-width:550px;
     margin:0 auto;
-    background:#1a1a1a;
+    background:#3d0009;
     padding:40px 30px;
-    border:1px solid rgba(212, 175, 55, 0.3);
+    border:1px solid rgba(212, 175, 55, 0.4);
     border-radius:10px;
     text-align:left;
 }
@@ -420,7 +420,7 @@ section{
 
 .form-group label{
     display:block;
-    font-size:11px;
+    font-size:13px;
     letter-spacing:2px;
     text-transform:uppercase;
     color:#d4af37;
@@ -431,27 +431,28 @@ section{
 .form-control{
     width:100%;
     padding:12px 15px;
-    border:1px solid #333;
+    border:1px solid #d4af37;
     border-radius:5px;
-    font-family:'Montserrat',sans-serif;
-    font-size:14px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:16px;
     outline:none;
-    background:#0a0a0a;
+    background:#2b0006;
     color:#fff;
 }
 
 .form-control:focus{
-    border-color:#d4af37;
+    border-color:#fff5c0;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
 }
 
 .submit-btn{
     width:100%;
     padding:15px;
     background:linear-gradient(135deg, #d4af37, #aa7c11);
-    color:#000;
+    color:#3d0009;
     border:none;
     border-radius:30px;
-    font-size:12px;
+    font-size:14px;
     letter-spacing:2px;
     text-transform:uppercase;
     font-weight:700;
@@ -460,14 +461,10 @@ section{
 }
 
 .submit-btn:hover{
-    box-shadow:0 0 20px rgba(212, 175, 55, 0.5);
+    box-shadow:0 0 20px rgba(212, 175, 55, 0.6);
 }
 
 /* WISHES SECTION */
-.wishes-section{
-    background:#080808;
-}
-
 .wishes-grid{
     max-width:850px;
     margin:40px auto 0;
@@ -477,49 +474,49 @@ section{
 }
 
 .wish-card{
-    background:#141414;
-    border:1px solid rgba(212, 175, 55, 0.2);
+    background:#3d0009;
+    border:1px solid rgba(212, 175, 55, 0.3);
     padding:20px;
     border-radius:8px;
     text-align:left;
 }
 
 .wish-card h4{
-    font-family:'Cinzel',serif;
-    font-size:20px;
+    font-family:'Cinzel Decorative', serif;
+    font-size:18px;
     color:#d4af37;
     margin-bottom:8px;
 }
 
 .wish-card p{
-    font-size:13px;
-    color:#bbb;
+    font-size:15px;
+    color:#fff5c0;
     line-height:1.6;
 }
 
 .wish-card .date-tag{
-    font-size:10px;
-    color:#777;
+    font-size:11px;
+    color:#d4af37;
     margin-top:12px;
     display:block;
 }
 
 .footer{
     padding:70px 20px;
-    background:#000;
-    border-top:1px solid rgba(212, 175, 55, 0.2);
+    background:#2b0006;
+    border-top:2px solid #d4af37;
     text-align:center;
 }
 
 .footer .names{
-    font-size:40px;
+    font-size:32px;
 }
 
 .footer p{
     margin-top:20px;
-    font-size:11px;
+    font-size:13px;
     letter-spacing:3px;
-    color:#888;
+    color:#d4af37;
 }
 
 @keyframes fadeIn{
@@ -533,7 +530,7 @@ section{
         max-width:400px;
     }
     section{
-        padding:70px 20px;
+        padding:50px 15px;
     }
 }
 </style>
@@ -556,8 +553,9 @@ section{
 </div>
 
 <!-- MAIN HERO SECTION -->
-<div class="hero">
+<div class="hero page-border">
     <div class="hero-content">
+        <i class="fa-solid fa-crown animated-icon"></i>
         <div class="small">Together with their families</div>
 
         <div class="names gold-text">
@@ -605,12 +603,14 @@ section{
     </div>
 
     <div class="scroll">
+        <i class="fa-solid fa-angles-down animated-icon" style="font-size:20px;"></i><br>
         SCROLL DOWN
     </div>
 </div>
 
 <!-- INVITATION MESSAGE -->
-<section>
+<section class="page-border">
+    <i class="fa-solid fa-heart animated-icon"></i>
     <div class="small">Wedding Invitation</div>
     <h2 class="section-title gold-text">We Are Getting Married</h2>
     <div class="line"></div>
@@ -622,26 +622,27 @@ section{
 </section>
 
 <!-- DETAILS & CEREMONY TIMES -->
-<section class="details">
+<section class="details page-border">
+    <i class="fa-solid fa-glass-cheers animated-icon"></i>
     <div class="small">Program & Schedule</div>
     <h2 class="section-title gold-text">Ceremony Details</h2>
     <div class="line"></div>
 
     <div class="detail-grid">
         <div class="card">
-            <div class="icon">👑</div>
+            <i class="fa-solid fa-hands-praying animated-icon"></i>
             <h3 class="gold-text">Poruwa Ceremony</h3>
             <p>Wednesday<br>21st October 2026<br><span class="time-highlight">9:14 AM</span></p>
         </div>
 
         <div class="card">
-            <div class="icon">✍️</div>
+            <i class="fa-solid fa-pen-nib animated-icon"></i>
             <h3 class="gold-text">Registration</h3>
             <p>Official Signing<br>21st October 2026<br><span class="time-highlight">10:19 AM</span></p>
         </div>
 
         <div class="card">
-            <div class="icon">🥂</div>
+            <i class="fa-solid fa-utensils animated-icon"></i>
             <h3 class="gold-text">Reception</h3>
             <p>Celebration & Lunch<br>21st October 2026<br><span class="time-highlight">10:40 AM Onwards</span></p>
         </div>
@@ -649,7 +650,8 @@ section{
 </section>
 
 <!-- COUNTDOWN -->
-<section class="countdown">
+<section class="countdown page-border">
+    <i class="fa-solid fa-clock animated-icon"></i>
     <div class="small">Counting the moments</div>
     <h2 class="section-title gold-text">Until We Say “I Do”</h2>
     <div class="line"></div>
@@ -663,8 +665,9 @@ section{
 </section>
 
 <!-- PRE-SHOOT GALLERY -->
-<section class="gallery-section">
-    <div class="small">Our Memories</div>
+<section class="gallery-section page-border">
+    <i class="fa-solid fa-camera-retro animated-icon"></i>
+    <div class="small">Our Moments</div>
     <h2 class="section-title gold-text">Pre-Shoot Gallery</h2>
     <div class="line"></div>
 
@@ -678,11 +681,15 @@ section{
         <div class="gallery-item">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Pre-shoot 3">
         </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800&auto=format&fit=crop" alt="Pre-shoot 4">
+        </div>
     </div>
 </section>
 
 <!-- LOCATION / MAP -->
-<section class="venue-section">
+<section class="venue-section page-border">
+    <i class="fa-solid fa-map-location-dot animated-icon"></i>
     <div class="small">Location Details</div>
     <h2 class="section-title gold-text">Marabedda Gardens Resort</h2>
     <div class="line"></div>
@@ -692,11 +699,12 @@ section{
         <iframe src="https://maps.google.com/maps?q=Marabedda%20Gardens%20Resort%20Rikillagaskada&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <a class="map-btn" href="https://maps.app.goo.gl/i33fomVz2q7ouui37" target="_blank">📍 OPEN IN GOOGLE MAPS</a>
+    <a class="map-btn" href="https://maps.app.goo.gl/i33fomVz2q7ouui37" target="_blank"><i class="fa-solid fa-diamond-turn-right"></i> OPEN IN GOOGLE MAPS</a>
 </section>
 
 <!-- RSVP SECTION -->
-<section class="rsvp-section">
+<section class="rsvp-section page-border">
+    <i class="fa-solid fa-envelope-open-text animated-icon"></i>
     <div class="small">Are You Coming?</div>
     <h2 class="section-title gold-text">RSVP Now</h2>
     <div class="line"></div>
@@ -710,8 +718,8 @@ section{
         <div class="form-group">
             <label>Send RSVP To / යැවිය යුතු අංකය</label>
             <select id="rsvpPhone" class="form-control">
-                <option value="9477391526">Groom (9477391526)</option>
-                <option value="94713862038">Bride (94713862038)</option>
+                <option value="94773915626">Sulochana (94773915626)</option>
+                <option value="94713862038">Jagath (94713862038)</option>
             </select>
         </div>
 
@@ -732,12 +740,13 @@ section{
             </select>
         </div>
 
-        <button class="submit-btn" onclick="sendRSVP()">📲 Send RSVP via WhatsApp</button>
+        <button class="submit-btn" onclick="sendRSVP()"><i class="fa-brands fa-whatsapp"></i> Send RSVP via WhatsApp</button>
     </div>
 </section>
 
 <!-- WISHES SECTION -->
-<section class="wishes-section">
+<section class="wishes-section page-border">
+    <i class="fa-solid fa-comment-dots animated-icon"></i>
     <div class="small">Blessings Wall</div>
     <h2 class="section-title gold-text">Leave Your Wishes</h2>
     <div class="line"></div>
@@ -753,7 +762,7 @@ section{
             <textarea id="wishMessage" class="form-control" rows="4" placeholder="Write your warm blessings..." required></textarea>
         </div>
 
-        <button class="submit-btn" onclick="postWish()">💖 Post Wish</button>
+        <button class="submit-btn" onclick="postWish()"><i class="fa-solid fa-paper-plane"></i> Post Wish</button>
     </div>
 
     <div class="wishes-grid" id="wishesGrid">
