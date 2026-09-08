@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jagath & Sulochana | Royal Gold Wedding Invitation</title>
+<title>Jagath & Sulochana | Royal Black & Gold Wedding Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Royal & Elegant Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@600;700&family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+Sinhala:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -21,33 +20,32 @@
 
 body{
     font-family: 'Cormorant Garamond', 'Noto Serif Sinhala', serif;
-    background:#120e03; /* Deep Gold-Black Background */
-    color:#fff8d6;
+    background:#080808; /* Pure Deep Black Background */
+    color:#f4e3b2;
     overflow-x:hidden;
 }
 
-/* PREMIUM GOLD GRADIENTS & ACCENTS */
+/* BLACK & GOLD THEME GRADIENTS & SINGLE BORDER */
 .gold-text{
     background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* SINGLE LINE GOLD BORDER */
 .page-border {
-    border: 3px solid #d4af37;
-    outline: 2px solid #b38728;
-    outline-offset: -8px;
-    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.2), 0 0 25px rgba(0, 0, 0, 0.8);
+    border: 1px solid #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(0,0,0,0.9);
 }
 
-/* FINGERPRINT LOCK SCREEN */
+/* CAR SLIDER LOCK SCREEN */
 #gatekeeper{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100vh;
-    background:radial-gradient(circle, #2a200a 0%, #0a0802 100%);
+    background:radial-gradient(circle, #1a1a1a 0%, #000000 100%);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -75,46 +73,59 @@ body{
     font-size:12px;
     letter-spacing:4px;
     text-transform:uppercase;
-    margin-bottom:50px;
+    margin-bottom:60px;
 }
 
-.fingerprint-btn{
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    background:rgba(212, 175, 55, 0.15);
-    border:2px solid #d4af37;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    position:relative;
-    box-shadow:0 0 30px rgba(212, 175, 55, 0.5);
-    animation:pulse 2s infinite;
+/* CAR SLIDER CONTAINER */
+.slider-container {
+    width: 300px;
+    height: 65px;
+    background: #111111;
+    border: 1px solid #d4af37;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
-.fingerprint-btn svg{
-    width:50px;
-    height:50px;
-    fill:#d4af37;
+.slider-text {
+    width: 100%;
+    text-align: right;
+    padding-right: 25px;
+    color: #d4af37;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    user-select: none;
+    animation: blink 2s infinite;
 }
 
-.touch-hint{
-    margin-top:25px;
-    color:#fcf6ba;
-    font-size:12px;
-    letter-spacing:2px;
-    animation:blink 1.5s infinite;
+.car-slider-btn {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #bf953f, #aa771c);
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    touch-action: none;
+    transition: background 0.3s;
 }
 
-@keyframes pulse{
-    0%{ transform:scale(1); box-shadow:0 0 20px rgba(212, 175, 55, 0.3); }
-    50%{ transform:scale(1.08); box-shadow:0 0 40px rgba(212, 175, 55, 0.8); }
-    100%{ transform:scale(1); box-shadow:0 0 20px rgba(212, 175, 55, 0.3); }
+.car-slider-btn i {
+    color: #000;
+    font-size: 24px;
 }
 
 @keyframes blink{
-    0%, 100%{ opacity:0.4; }
+    0%, 100%{ opacity:0.3; }
     50%{ opacity:1; }
 }
 
@@ -127,7 +138,7 @@ body{
     align-items:center;
     text-align:center;
     position:relative;
-    background: linear-gradient(rgba(18, 14, 3, 0.88), rgba(10, 8, 2, 0.92)),
+    background: linear-gradient(rgba(8, 8, 8, 0.92), rgba(0, 0, 0, 0.95)),
     url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop");
     background-size:cover;
     background-position:center;
@@ -165,7 +176,7 @@ body{
     margin-top:20px;
     font-size:16px;
     letter-spacing:5px;
-    color:#fff8d6;
+    color:#f4e3b2;
 }
 
 /* ICON ANIMATIONS */
@@ -178,8 +189,8 @@ body{
 }
 
 @keyframes floatIcon {
-    0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 3px #d4af37); }
-    50% { transform: translateY(-8px) scale(1.15); filter: drop-shadow(0 0 10px #fcf6ba); }
+    0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 2px #d4af37); }
+    50% { transform: translateY(-8px) scale(1.15); filter: drop-shadow(0 0 8px #fcf6ba); }
 }
 
 /* WEDDING COUPLE VECTOR ANIMATION CONTAINER */
@@ -208,7 +219,7 @@ body.opened .bride-wrapper{ transform:translateX(25px); }
 
 .couple-img{
     height:190px;
-    filter:drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+    filter:drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
 }
 
 .love-heart{
@@ -241,10 +252,10 @@ body.opened .love-heart{
 section{
     padding:80px 25px;
     text-align:center;
-    margin: 20px auto;
+    margin: 25px auto;
     max-width: 1000px;
-    background: #1c1606;
-    border-radius: 10px;
+    background: #111111;
+    border-radius: 8px;
 }
 
 .section-title{
@@ -255,7 +266,7 @@ section{
 
 .line{
     width:80px;
-    height:2px;
+    height:1px;
     background:linear-gradient(90deg, transparent, #d4af37, transparent);
     margin:20px auto 35px;
 }
@@ -264,12 +275,12 @@ section{
     max-width:650px;
     margin:auto;
     line-height:2;
-    color:#fff8d6;
+    color:#f4e3b2;
     font-size:18px;
 }
 
 .details{
-    background:#1c1606;
+    background:#111111;
 }
 
 .detail-grid{
@@ -282,16 +293,15 @@ section{
 
 .card{
     padding:35px 20px;
-    border:1px solid rgba(212, 175, 55, 0.4);
-    background:#2b210a;
-    border-radius:8px;
-    transition:transform 0.3s, border-color 0.3s;
+    border:1px solid #d4af37;
+    background:#161616;
+    border-radius:6px;
+    transition:transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover{
     transform:translateY(-8px);
-    border-color:#d4af37;
-    box-shadow:0 10px 25px rgba(212, 175, 55, 0.3);
+    box-shadow:0 8px 20px rgba(212, 175, 55, 0.25);
 }
 
 .card h3{
@@ -301,7 +311,7 @@ section{
 }
 
 .card p{
-    color:#fff8d6;
+    color:#f4e3b2;
     font-size:16px;
     line-height:1.8;
 }
@@ -323,8 +333,8 @@ section{
 .time-box{
     min-width:90px;
     padding:20px 10px;
-    background:#2b210a;
-    border:1px solid rgba(212, 175, 55, 0.4);
+    background:#161616;
+    border:1px solid #d4af37;
     border-radius:6px;
 }
 
@@ -338,7 +348,7 @@ section{
 .time-box span{
     font-size:11px;
     letter-spacing:2px;
-    color:#fff8d6;
+    color:#f4e3b2;
 }
 
 /* PHOTO GALLERY */
@@ -353,8 +363,8 @@ section{
 .gallery-item{
     position:relative;
     overflow:hidden;
-    border-radius:8px;
-    border:2px solid #d4af37;
+    border-radius:6px;
+    border:1px solid #d4af37;
     height:300px;
 }
 
@@ -373,9 +383,9 @@ section{
 .map-container{
     max-width:850px;
     margin:30px auto;
-    border-radius:12px;
+    border-radius:8px;
     overflow:hidden;
-    border:2px solid #d4af37;
+    border:1px solid #d4af37;
 }
 
 .map-container iframe{
@@ -388,8 +398,8 @@ section{
     display:inline-block;
     margin-top:20px;
     padding:14px 32px;
-    background:linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%);
-    color:#120e03;
+    background:linear-gradient(135deg, #bf953f, #aa771c);
+    color:#000;
     text-decoration:none;
     font-size:14px;
     letter-spacing:2px;
@@ -399,7 +409,7 @@ section{
 }
 
 .map-btn:hover{
-    box-shadow:0 0 20px rgba(212, 175, 55, 0.8);
+    box-shadow:0 0 20px rgba(212, 175, 55, 0.6);
     transform:scale(1.03);
 }
 
@@ -407,10 +417,10 @@ section{
 .form-box{
     max-width:550px;
     margin:0 auto;
-    background:#2b210a;
+    background:#161616;
     padding:40px 30px;
-    border:1px solid rgba(212, 175, 55, 0.4);
-    border-radius:10px;
+    border:1px solid #d4af37;
+    border-radius:8px;
     text-align:left;
 }
 
@@ -432,24 +442,24 @@ section{
     width:100%;
     padding:12px 15px;
     border:1px solid #d4af37;
-    border-radius:5px;
+    border-radius:4px;
     font-family:'Cormorant Garamond', serif;
     font-size:16px;
     outline:none;
-    background:#120e03;
-    color:#fff8d6;
+    background:#080808;
+    color:#fff;
 }
 
 .form-control:focus{
     border-color:#fcf6ba;
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
 }
 
 .submit-btn{
     width:100%;
     padding:15px;
-    background:linear-gradient(135deg, #bf953f 0%, #fcf6ba 50%, #aa771c 100%);
-    color:#120e03;
+    background:linear-gradient(135deg, #bf953f, #aa771c);
+    color:#000;
     border:none;
     border-radius:30px;
     font-size:14px;
@@ -461,7 +471,7 @@ section{
 }
 
 .submit-btn:hover{
-    box-shadow:0 0 20px rgba(212, 175, 55, 0.8);
+    box-shadow:0 0 20px rgba(212, 175, 55, 0.6);
 }
 
 /* WISHES SECTION */
@@ -474,10 +484,10 @@ section{
 }
 
 .wish-card{
-    background:#2b210a;
-    border:1px solid rgba(212, 175, 55, 0.3);
+    background:#161616;
+    border:1px solid #d4af37;
     padding:20px;
-    border-radius:8px;
+    border-radius:6px;
     text-align:left;
 }
 
@@ -490,7 +500,7 @@ section{
 
 .wish-card p{
     font-size:15px;
-    color:#fff8d6;
+    color:#f4e3b2;
     line-height:1.6;
 }
 
@@ -503,8 +513,8 @@ section{
 
 .footer{
     padding:70px 20px;
-    background:#0a0802;
-    border-top:2px solid #d4af37;
+    background:#000000;
+    border-top:1px solid #d4af37;
     text-align:center;
 }
 
@@ -538,18 +548,18 @@ section{
 
 <body>
 
-<!-- FINGERPRINT LOCK GATE -->
+<!-- CAR SLIDER LOCK GATE -->
 <div id="gatekeeper">
     <div class="gate-names gold-text">Jagath & Sulochana</div>
     <div class="gate-sub">Royal Wedding Invitation</div>
 
-    <div class="fingerprint-btn" onclick="openInvitation()">
-        <svg viewBox="0 0 24 24">
-            <path d="M17.81 4.42c-1.32-1.03-3.03-1.62-4.81-1.62-1.88 0-3.66.64-5.02 1.76-2.6 2.14-3.92 5.56-3.4 8.92.11.72.31 1.43.6 2.1.27.61.99.89 1.6.62.61-.27.89-.99.62-1.6-.21-.49-.35-1.01-.43-1.53-.39-2.52.59-5.08 2.54-6.68 1.02-.84 2.36-1.31 3.76-1.31 1.34 0 2.62.45 3.61 1.22 1.95 1.51 3.01 3.93 2.76 6.47-.11 1.15-.49 2.27-1.11 3.25-.37.58-.2 1.35.38 1.72.58.37 1.35.2 1.72-.38.83-1.3 1.33-2.79 1.48-4.32.33-3.38-1.07-6.61-3.67-8.62zM12 9c-1.66 0-3 1.34-3 3 0 1.96.81 3.82 2.22 5.15.44.42 1.15.4 1.57-.04.42-.44.4-1.15-.04-1.57-.96-.91-1.51-2.18-1.51-3.54 0-.41.34-.75.75-.75s.75.34.75.75c0 .76.31 1.48.86 2 .43.41 1.14.39 1.55-.04.41-.43.39-1.14-.04-1.55-.23-.22-.36-.52-.36-.84 0-1.66-1.34-3-3-3z"/>
-        </svg>
+    <!-- CAR SLIDER -->
+    <div class="slider-container" id="sliderContainer">
+        <div class="slider-text">Slide Car to Open</div>
+        <div class="car-slider-btn" id="carBtn">
+            <i class="fa-solid fa-car-side"></i>
+        </div>
     </div>
-
-    <div class="touch-hint">TOUCH FINGERPRINT TO OPEN</div>
 </div>
 
 <!-- MAIN HERO SECTION -->
@@ -578,11 +588,11 @@ section{
                 <path d="M45 25 L60 5 L75 25 L68 28 L60 18 L52 28 Z" fill="#D4AF37"/>
                 <circle cx="60" cy="8" r="3" fill="#D4AF37"/>
                 <circle cx="60" cy="38" r="14" fill="#E8BEAC"/>
-                <path d="M35 55 Q60 48 85 55 L90 115 Q60 120 30 115 Z" fill="#2b210a"/>
+                <path d="M35 55 Q60 48 85 55 L90 115 Q60 120 30 115 Z" fill="#161616"/>
                 <path d="M60 52 L60 118 M45 60 L75 60 M40 80 L80 80 M42 100 L78 100" stroke="#D4AF37" stroke-width="2.5"/>
                 <path d="M30 55 C20 60 20 75 35 75 Z" fill="#D4AF37"/>
                 <path d="M90 55 C100 60 100 75 85 75 Z" fill="#D4AF37"/>
-                <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#120e03" stroke="#D4AF37" stroke-width="2"/>
+                <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
                 <path d="M85 85 Q98 105 108 120" stroke="#E8BEAC" stroke-width="6" stroke-linecap="round"/>
             </svg>
         </div>
@@ -592,10 +602,10 @@ section{
                 <circle cx="60" cy="35" r="16" fill="#2B1B17"/>
                 <path d="M48 28 Q60 20 72 28" stroke="#D4AF37" stroke-width="3" fill="none"/>
                 <circle cx="60" cy="40" r="13" fill="#F3D0C1"/>
-                <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#2b210a"/>
-                <path d="M35 88 Q60 105 85 88" fill="#2b210a" stroke="#D4AF37" stroke-width="1.5"/>
+                <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#161616"/>
+                <path d="M35 88 Q60 105 85 88" fill="#161616" stroke="#D4AF37" stroke-width="1.5"/>
                 <path d="M50 55 Q60 75 70 55 M46 62 Q60 85 74 62" stroke="#D4AF37" stroke-width="2" fill="none"/>
-                <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#120e03" stroke="#D4AF37" stroke-width="2"/>
+                <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
                 <path d="M45 120 Q60 200 75 120 M38 150 Q60 210 82 150" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
                 <path d="M38 85 Q22 105 12 120" stroke="#F3D0C1" stroke-width="5" stroke-linecap="round"/>
             </svg>
@@ -781,6 +791,51 @@ section{
 </div>
 
 <script>
+// CAR SLIDER INTERACTION
+const carBtn = document.getElementById("carBtn");
+const sliderContainer = document.getElementById("sliderContainer");
+let isDragging = false;
+let startX, currentX, maxSlide;
+
+function startDrag(e) {
+    isDragging = true;
+    startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    maxSlide = sliderContainer.clientWidth - carBtn.clientWidth - 10;
+}
+
+function onDrag(e) {
+    if (!isDragging) return;
+    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+    let deltaX = clientX - startX;
+
+    if (deltaX < 0) deltaX = 0;
+    if (deltaX > maxSlide) deltaX = maxSlide;
+
+    carBtn.style.left = (deltaX + 5) + "px";
+
+    if (deltaX >= maxSlide - 5) {
+        isDragging = false;
+        openInvitation();
+    }
+}
+
+function stopDrag() {
+    if (!isDragging) return;
+    isDragging = false;
+    carBtn.style.transition = "left 0.3s ease";
+    carBtn.style.left = "5px";
+    setTimeout(() => { carBtn.style.transition = ""; }, 300);
+}
+
+carBtn.addEventListener("mousedown", startDrag);
+carBtn.addEventListener("touchstart", startDrag);
+
+window.addEventListener("mousemove", onDrag);
+window.addEventListener("touchmove", onDrag);
+
+window.addEventListener("mouseup", stopDrag);
+window.addEventListener("touchend", stopDrag);
+
 function openInvitation(){
     document.getElementById("gatekeeper").classList.add("open");
     document.body.classList.add("opened");
