@@ -181,7 +181,6 @@ body{
     transform:translateX(140px);
 }
 
-/* When Gatekeeper Opens, Walk Together */
 body.opened .groom-wrapper{
     transform:translateX(-25px);
 }
@@ -355,6 +354,112 @@ section{
     box-shadow:0 5px 15px rgba(168,134,89,0.4);
 }
 
+/* RSVP SECTION */
+.rsvp-section{
+    background:#fdfaf5;
+}
+
+.form-box{
+    max-width:550px;
+    margin:0 auto;
+    background:#fff;
+    padding:40px 30px;
+    border:1px solid #e3d7c7;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.03);
+    text-align:left;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#6d5a43;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.form-control{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #dcd1c2;
+    border-radius:5px;
+    font-family:'Montserrat',sans-serif;
+    font-size:14px;
+    outline:none;
+    background:#fffdf9;
+}
+
+.form-control:focus{
+    border-color:#a88659;
+}
+
+.submit-btn{
+    width:100%;
+    padding:15px;
+    background:#a88659;
+    color:white;
+    border:none;
+    border-radius:30px;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    background:#8d6d45;
+}
+
+/* WISHES & BLESSINGS SECTION */
+.wishes-section{
+    background:#fff;
+}
+
+.wishes-grid{
+    max-width:850px;
+    margin:40px auto 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+    gap:20px;
+}
+
+.wish-card{
+    background:#fffdf9;
+    border:1px solid #e3d7c7;
+    padding:20px;
+    border-radius:8px;
+    text-align:left;
+    box-shadow:0 5px 15px rgba(0,0,0,0.02);
+}
+
+.wish-card h4{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    color:#493b2d;
+    margin-bottom:8px;
+}
+
+.wish-card p{
+    font-size:13px;
+    color:#666;
+    line-height:1.6;
+}
+
+.wish-card .date-tag{
+    font-size:10px;
+    color:#a88659;
+    margin-top:12px;
+    display:block;
+}
+
 .footer{
     padding:70px 20px;
     background:#302820;
@@ -430,46 +535,30 @@ section{
     <div class="couple-stage">
         <div class="love-heart">💖</div>
 
-        <!-- Groom (Kandyan Nilame Attire SVG) -->
         <div class="groom-wrapper">
             <svg class="couple-img" viewBox="0 0 120 220">
-                <!-- Crown / Mul Aduma Crown -->
                 <path d="M45 25 L60 5 L75 25 L68 28 L60 18 L52 28 Z" fill="#D4AF37"/>
                 <circle cx="60" cy="8" r="3" fill="#B22222"/>
-                <!-- Head -->
                 <circle cx="60" cy="38" r="14" fill="#E8BEAC"/>
-                <!-- Royal Jacket (Nilame Jacket) -->
                 <path d="M35 55 Q60 48 85 55 L90 115 Q60 120 30 115 Z" fill="#8B0000"/>
-                <!-- Gold Embroidery on Jacket -->
                 <path d="M60 52 L60 118 M45 60 L75 60 M40 80 L80 80 M42 100 L78 100" stroke="#D4AF37" stroke-width="2.5"/>
-                <!-- Shoulders Structure -->
                 <path d="M30 55 C20 60 20 75 35 75 Z" fill="#D4AF37"/>
                 <path d="M90 55 C100 60 100 75 85 75 Z" fill="#D4AF37"/>
-                <!-- Traditional Tufted Sarong / Pants (Tuppettiya) -->
                 <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#FFFDF0" stroke="#D4AF37" stroke-width="2"/>
-                <!-- Hand holding Bride -->
                 <path d="M85 85 Q98 105 108 120" stroke="#E8BEAC" stroke-width="6" stroke-linecap="round"/>
             </svg>
         </div>
 
-        <!-- Bride (Kandyan Osari Bride SVG) -->
         <div class="bride-wrapper">
             <svg class="couple-img" viewBox="0 0 120 220">
-                <!-- Hair Bun with Flowers (Nalalpata) -->
                 <circle cx="60" cy="35" r="16" fill="#2B1B17"/>
                 <path d="M48 28 Q60 20 72 28" stroke="#D4AF37" stroke-width="3" fill="none"/>
-                <!-- Head -->
                 <circle cx="60" cy="40" r="13" fill="#F3D0C1"/>
-                <!-- Kandyan Osari Jacket & Frills (Nengettiya) -->
                 <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#FAF0E6"/>
                 <path d="M35 88 Q60 105 85 88" fill="#F5E6C8" stroke="#D4AF37" stroke-width="1.5"/>
-                <!-- Gold Jewellery Chains (Padakkam & Nalalpata) -->
                 <path d="M50 55 Q60 75 70 55 M46 62 Q60 85 74 62" stroke="#D4AF37" stroke-width="2" fill="none"/>
-                <!-- Saree / Osari Skirt (Gold & White) -->
                 <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#FAF0E6" stroke="#D4AF37" stroke-width="2"/>
-                <!-- Gold Embroidery Details -->
                 <path d="M45 120 Q60 200 75 120 M38 150 Q60 210 82 150" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-                <!-- Hand holding Groom -->
                 <path d="M38 85 Q22 105 12 120" stroke="#F3D0C1" stroke-width="5" stroke-linecap="round"/>
             </svg>
         </div>
@@ -615,6 +704,85 @@ section{
 
 </section>
 
+<!-- RSVP SECTION -->
+<section class="rsvp-section">
+
+    <div class="small">Are You Coming?</div>
+
+    <h2 class="section-title">
+        RSVP Now
+    </h2>
+
+    <div class="line"></div>
+
+    <div class="form-box">
+        <div class="form-group">
+            <label>Your Full Name / නම</label>
+            <input type="text" id="rsvpName" class="form-control" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Number of Guests / පැමිණෙන සංඛ්‍යාව</label>
+            <select id="rsvpGuests" class="form-control">
+                <option value="1 Person">1 Person</option>
+                <option value="2 Persons">2 Persons</option>
+                <option value="Family / 3+ Persons">Family / 3+ Persons</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Will You Attend? / පැමිණීම</label>
+            <select id="rsvpStatus" class="form-control">
+                <option value="Joyfully Accepts">Joyfully Accepts (පැමිණෙමි)</option>
+                <option value="Regretfully Declines">Regretfully Declines (පැමිණීමට නොහැක)</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" onclick="sendRSVP()">
+            📲 Send RSVP via WhatsApp
+        </button>
+    </div>
+
+</section>
+
+<!-- BLESSINGS & WISHES SECTION -->
+<section class="wishes-section">
+
+    <div class="small">Blessings Wall</div>
+
+    <h2 class="section-title">
+        Leave Your Wishes
+    </h2>
+
+    <div class="line"></div>
+
+    <div class="form-box" style="margin-bottom:40px;">
+        <div class="form-group">
+            <label>Your Name / නම</label>
+            <input type="text" id="wishName" class="form-control" placeholder="Your name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Your Message / සුබ පැතුම</label>
+            <textarea id="wishMessage" class="form-control" rows="4" placeholder="Write your warm blessings for Jagath & Sulochana..." required></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="postWish()">
+            💖 Post Wish
+        </button>
+    </div>
+
+    <!-- DISPLAYED WISHES WALL -->
+    <div class="wishes-grid" id="wishesGrid">
+        <div class="wish-card">
+            <h4>Anura & Family</h4>
+            <p>Wishing you both a lifetime of eternal love, peace, and endless happiness together! ❤️</p>
+            <span class="date-tag">Jagath & Sulochana Wedding</span>
+        </div>
+    </div>
+
+</section>
+
 <!-- FOOTER -->
 <div class="footer">
 
@@ -663,6 +831,51 @@ function countdown(){
 
 countdown();
 setInterval(countdown,1000);
+
+/* RSVP FUNCTION */
+function sendRSVP(){
+    const name = document.getElementById("rsvpName").value;
+    const guests = document.getElementById("rsvpGuests").value;
+    const status = document.getElementById("rsvpStatus").value;
+
+    if(!name){
+        alert("Please enter your name.");
+        return;
+    }
+
+    // Your WhatsApp Number (Edit here if needed)
+    const phone = "94770000000"; 
+    const message = `*WEDDING RSVP*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Guests:* ${encodeURIComponent(guests)}%0A*Status:* ${encodeURIComponent(status)}`;
+    
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+}
+
+/* BLESSINGS & WISHES FUNCTION */
+function postWish(){
+    const name = document.getElementById("wishName").value;
+    const msg = document.getElementById("wishMessage").value;
+
+    if(!name || !msg){
+        alert("Please fill in both your name and wish message.");
+        return;
+    }
+
+    const grid = document.getElementById("wishesGrid");
+    const newCard = document.createElement("div");
+    newCard.className = "wish-card";
+    newCard.innerHTML = `<h4>${escapeHtml(name)}</h4><p>${escapeHtml(msg)}</p><span class="date-tag">Jagath & Sulochana Wedding</span>`;
+
+    grid.prepend(newCard);
+
+    document.getElementById("wishName").value = "";
+    document.getElementById("wishMessage").value = "";
+
+    alert("Thank you for your warm blessing! ❤️");
+}
+
+function escapeHtml(text) {
+    return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
 
 </script>
 
