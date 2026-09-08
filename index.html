@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jagath & Sulochana | Wedding Invitation</title>
+<title>Jagath & Sulochana | Royal Wedding Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -19,9 +19,21 @@
 
 body{
     font-family:'Montserrat',sans-serif;
-    background:#f8f4ee;
-    color:#333;
+    background:#0d0d0d;
+    color:#e0e0e0;
     overflow-x:hidden;
+}
+
+/* GOLD GRADIENTS & ACCENTS */
+.gold-text{
+    background: linear-gradient(135deg, #d4af37 0%, #fff5c0 50%, #aa7c11 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gold-border{
+    border: 1px solid #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
 /* FINGERPRINT LOCK SCREEN */
@@ -31,7 +43,7 @@ body{
     left:0;
     width:100%;
     height:100vh;
-    background:linear-gradient(135deg, #1f1812 0%, #3d2f23 100%);
+    background:radial-gradient(circle, #1a1a1a 0%, #050505 100%);
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -48,15 +60,14 @@ body{
 }
 
 .gate-names{
-    font-family:'Cormorant Garamond',serif;
-    color:#f3e8d7;
+    font-family:'Cinzel',serif;
     font-size:38px;
     margin-bottom:10px;
-    letter-spacing:1px;
+    letter-spacing:2px;
 }
 
 .gate-sub{
-    color:#c4a882;
+    color:#d4af37;
     font-size:12px;
     letter-spacing:4px;
     text-transform:uppercase;
@@ -67,39 +78,39 @@ body{
     width:90px;
     height:90px;
     border-radius:50%;
-    background:rgba(196,168,130,0.15);
-    border:2px solid #c4a882;
+    background:rgba(212, 175, 55, 0.1);
+    border:2px solid #d4af37;
     display:flex;
     justify-content:center;
     align-items:center;
     cursor:pointer;
     position:relative;
-    box-shadow:0 0 25px rgba(196,168,130,0.3);
+    box-shadow:0 0 30px rgba(212, 175, 55, 0.4);
     animation:pulse 2s infinite;
 }
 
 .fingerprint-btn svg{
     width:50px;
     height:50px;
-    fill:#c4a882;
+    fill:#d4af37;
 }
 
 .touch-hint{
     margin-top:25px;
-    color:#d8c3a5;
+    color:#888;
     font-size:12px;
     letter-spacing:2px;
     animation:blink 1.5s infinite;
 }
 
 @keyframes pulse{
-    0%{ transform:scale(1); box-shadow:0 0 15px rgba(196,168,130,0.3); }
-    50%{ transform:scale(1.08); box-shadow:0 0 30px rgba(196,168,130,0.6); }
-    100%{ transform:scale(1); box-shadow:0 0 15px rgba(196,168,130,0.3); }
+    0%{ transform:scale(1); box-shadow:0 0 20px rgba(212, 175, 55, 0.3); }
+    50%{ transform:scale(1.08); box-shadow:0 0 40px rgba(212, 175, 55, 0.7); }
+    100%{ transform:scale(1); box-shadow:0 0 20px rgba(212, 175, 55, 0.3); }
 }
 
 @keyframes blink{
-    0%, 100%{ opacity:0.5; }
+    0%, 100%{ opacity:0.4; }
     50%{ opacity:1; }
 }
 
@@ -112,8 +123,7 @@ body{
     align-items:center;
     text-align:center;
     position:relative;
-    background:
-    linear-gradient(rgba(255,255,255,.82),rgba(255,255,255,.82)),
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
     url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop");
     background-size:cover;
     background-position:center;
@@ -128,31 +138,30 @@ body{
 
 .small{
     letter-spacing:5px;
-    font-size:13px;
+    font-size:12px;
     text-transform:uppercase;
-    color:#9a7b4f;
+    color:#d4af37;
     margin-bottom:20px;
 }
 
 .names{
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(55px,13vw,100px);
-    line-height:.9;
-    font-weight:500;
-    color:#302820;
+    font-family:'Cinzel',serif;
+    font-size:clamp(45px,11vw,90px);
+    line-height:1.1;
+    font-weight:700;
 }
 
 .amp{
-    font-size:45px;
-    color:#b28b57;
+    font-size:40px;
+    color:#d4af37;
     margin:10px 0;
 }
 
 .date{
     margin-top:20px;
-    font-size:15px;
-    letter-spacing:4px;
-    color:#6d5a43;
+    font-size:14px;
+    letter-spacing:5px;
+    color:#cccccc;
 }
 
 /* WEDDING COUPLE VECTOR ANIMATION CONTAINER */
@@ -173,25 +182,15 @@ body{
     transition:transform 2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.groom-wrapper{
-    transform:translateX(-140px);
-}
+.groom-wrapper{ transform:translateX(-140px); }
+.bride-wrapper{ transform:translateX(140px); }
 
-.bride-wrapper{
-    transform:translateX(140px);
-}
-
-body.opened .groom-wrapper{
-    transform:translateX(-25px);
-}
-
-body.opened .bride-wrapper{
-    transform:translateX(25px);
-}
+body.opened .groom-wrapper{ transform:translateX(-25px); }
+body.opened .bride-wrapper{ transform:translateX(25px); }
 
 .couple-img{
     height:190px;
-    filter:drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+    filter:drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
 }
 
 .love-heart{
@@ -206,6 +205,12 @@ body.opened .bride-wrapper{
 body.opened .love-heart{
     opacity:1;
     transform:scale(1.2);
+    animation:heartbeat 1.5s infinite 2.6s;
+}
+
+@keyframes heartbeat{
+    0%, 100%{ transform:scale(1.2); }
+    50%{ transform:scale(1.4); }
 }
 
 .scroll{
@@ -221,16 +226,15 @@ section{
 }
 
 .section-title{
-    font-family:'Cormorant Garamond',serif;
-    font-size:48px;
-    font-weight:500;
-    color:#493b2d;
+    font-family:'Cinzel',serif;
+    font-size:40px;
+    font-weight:600;
 }
 
 .line{
-    width:70px;
-    height:1px;
-    background:#b28b57;
+    width:80px;
+    height:2px;
+    background:linear-gradient(90deg, transparent, #d4af37, transparent);
     margin:20px auto 35px;
 }
 
@@ -238,12 +242,12 @@ section{
     max-width:650px;
     margin:auto;
     line-height:2;
-    color:#666;
+    color:#b3b3b3;
     font-size:15px;
 }
 
 .details{
-    background:#fff;
+    background:#121212;
 }
 
 .detail-grid{
@@ -256,37 +260,43 @@ section{
 
 .card{
     padding:35px 20px;
-    border:1px solid #e3d7c7;
-    background:#fffdf9;
+    border:1px solid rgba(212, 175, 55, 0.3);
+    background:#1a1a1a;
     border-radius:8px;
+    transition:transform 0.3s, border-color 0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#d4af37;
+    box-shadow:0 10px 25px rgba(212, 175, 55, 0.2);
 }
 
 .icon{
-    font-size:30px;
+    font-size:32px;
     margin-bottom:15px;
 }
 
 .card h3{
-    font-family:'Cormorant Garamond',serif;
-    font-size:28px;
-    font-weight:500;
+    font-family:'Cinzel',serif;
+    font-size:24px;
     margin-bottom:10px;
-    color:#493b2d;
 }
 
 .card p{
-    color:#777;
+    color:#aaa;
     font-size:14px;
     line-height:1.8;
 }
 
 .time-highlight{
-    color:#a88659;
+    color:#d4af37;
     font-weight:600;
 }
 
+/* COUNTDOWN */
 .countdown{
-    background:#eee7dc;
+    background:#080808;
 }
 
 .timer{
@@ -300,15 +310,16 @@ section{
 .time-box{
     min-width:90px;
     padding:20px 10px;
-    background:white;
+    background:#141414;
+    border:1px solid rgba(212, 175, 55, 0.2);
     border-radius:6px;
 }
 
 .time-box strong{
     display:block;
-    font-family:'Cormorant Garamond',serif;
-    font-size:38px;
-    color:#8d6d45;
+    font-family:'Cinzel',serif;
+    font-size:36px;
+    color:#d4af37;
 }
 
 .time-box span{
@@ -317,8 +328,41 @@ section{
     color:#777;
 }
 
+/* PHOTO GALLERY */
+.gallery-section{
+    background:#121212;
+}
+
+.gallery-grid{
+    max-width:1000px;
+    margin:40px auto 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+    gap:20px;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:8px;
+    border:1px solid rgba(212, 175, 55, 0.2);
+    height:320px;
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform 0.5s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.1);
+}
+
+/* LOCATION / MAP */
 .venue-section{
-    background:#fff;
+    background:#080808;
 }
 
 .map-container{
@@ -326,47 +370,47 @@ section{
     margin:30px auto;
     border-radius:12px;
     overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    border:1px solid rgba(212, 175, 55, 0.3);
 }
 
 .map-container iframe{
     width:100%;
     height:380px;
     border:0;
+    filter:invert(90%) hue-rotate(180deg);
 }
 
 .map-btn{
     display:inline-block;
     margin-top:20px;
     padding:14px 32px;
-    background:#a88659;
-    color:white;
+    background:linear-gradient(135deg, #d4af37, #aa7c11);
+    color:#000;
     text-decoration:none;
     font-size:12px;
     letter-spacing:2px;
     border-radius:30px;
     transition:.3s;
-    font-weight:500;
+    font-weight:700;
 }
 
 .map-btn:hover{
-    background:#8d6d45;
-    box-shadow:0 5px 15px rgba(168,134,89,0.4);
+    box-shadow:0 0 20px rgba(212, 175, 55, 0.6);
+    transform:scale(1.03);
 }
 
 /* RSVP SECTION */
 .rsvp-section{
-    background:#fdfaf5;
+    background:#121212;
 }
 
 .form-box{
     max-width:550px;
     margin:0 auto;
-    background:#fff;
+    background:#1a1a1a;
     padding:40px 30px;
-    border:1px solid #e3d7c7;
+    border:1px solid rgba(212, 175, 55, 0.3);
     border-radius:10px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.03);
     text-align:left;
 }
 
@@ -376,10 +420,10 @@ section{
 
 .form-group label{
     display:block;
-    font-size:12px;
+    font-size:11px;
     letter-spacing:2px;
     text-transform:uppercase;
-    color:#6d5a43;
+    color:#d4af37;
     margin-bottom:8px;
     font-weight:600;
 }
@@ -387,40 +431,41 @@ section{
 .form-control{
     width:100%;
     padding:12px 15px;
-    border:1px solid #dcd1c2;
+    border:1px solid #333;
     border-radius:5px;
     font-family:'Montserrat',sans-serif;
     font-size:14px;
     outline:none;
-    background:#fffdf9;
+    background:#0a0a0a;
+    color:#fff;
 }
 
 .form-control:focus{
-    border-color:#a88659;
+    border-color:#d4af37;
 }
 
 .submit-btn{
     width:100%;
     padding:15px;
-    background:#a88659;
-    color:white;
+    background:linear-gradient(135deg, #d4af37, #aa7c11);
+    color:#000;
     border:none;
     border-radius:30px;
     font-size:12px;
     letter-spacing:2px;
     text-transform:uppercase;
-    font-weight:600;
+    font-weight:700;
     cursor:pointer;
     transition:.3s;
 }
 
 .submit-btn:hover{
-    background:#8d6d45;
+    box-shadow:0 0 20px rgba(212, 175, 55, 0.5);
 }
 
-/* WISHES & BLESSINGS SECTION */
+/* WISHES SECTION */
 .wishes-section{
-    background:#fff;
+    background:#080808;
 }
 
 .wishes-grid{
@@ -432,51 +477,49 @@ section{
 }
 
 .wish-card{
-    background:#fffdf9;
-    border:1px solid #e3d7c7;
+    background:#141414;
+    border:1px solid rgba(212, 175, 55, 0.2);
     padding:20px;
     border-radius:8px;
     text-align:left;
-    box-shadow:0 5px 15px rgba(0,0,0,0.02);
 }
 
 .wish-card h4{
-    font-family:'Cormorant Garamond',serif;
-    font-size:22px;
-    color:#493b2d;
+    font-family:'Cinzel',serif;
+    font-size:20px;
+    color:#d4af37;
     margin-bottom:8px;
 }
 
 .wish-card p{
     font-size:13px;
-    color:#666;
+    color:#bbb;
     line-height:1.6;
 }
 
 .wish-card .date-tag{
     font-size:10px;
-    color:#a88659;
+    color:#777;
     margin-top:12px;
     display:block;
 }
 
 .footer{
     padding:70px 20px;
-    background:#302820;
-    color:white;
+    background:#000;
+    border-top:1px solid rgba(212, 175, 55, 0.2);
     text-align:center;
 }
 
 .footer .names{
-    color:white;
-    font-size:50px;
+    font-size:40px;
 }
 
 .footer p{
     margin-top:20px;
     font-size:11px;
     letter-spacing:3px;
-    color:#d6c6af;
+    color:#888;
 }
 
 @keyframes fadeIn{
@@ -489,7 +532,6 @@ section{
         grid-template-columns:1fr;
         max-width:400px;
     }
-
     section{
         padding:70px 20px;
     }
@@ -501,8 +543,8 @@ section{
 
 <!-- FINGERPRINT LOCK GATE -->
 <div id="gatekeeper">
-    <div class="gate-names">Jagath & Sulochana</div>
-    <div class="gate-sub">Wedding Invitation</div>
+    <div class="gate-names gold-text">Jagath & Sulochana</div>
+    <div class="gate-sub">Royal Wedding Invitation</div>
 
     <div class="fingerprint-btn" onclick="openInvitation()">
         <svg viewBox="0 0 24 24">
@@ -516,10 +558,9 @@ section{
 <!-- MAIN HERO SECTION -->
 <div class="hero">
     <div class="hero-content">
-
         <div class="small">Together with their families</div>
 
-        <div class="names">
+        <div class="names gold-text">
             Jagath
             <div class="amp">&</div>
             Sulochana
@@ -528,10 +569,9 @@ section{
         <div class="date">
             21 • OCTOBER • 2026
         </div>
-
     </div>
 
-    <!-- KANDYAN TRADITIONAL WEDDING COUPLE ANIMATION -->
+    <!-- KANDYAN WEDDING COUPLE ANIMATION -->
     <div class="couple-stage">
         <div class="love-heart">💖</div>
 
@@ -544,7 +584,7 @@ section{
                 <path d="M60 52 L60 118 M45 60 L75 60 M40 80 L80 80 M42 100 L78 100" stroke="#D4AF37" stroke-width="2.5"/>
                 <path d="M30 55 C20 60 20 75 35 75 Z" fill="#D4AF37"/>
                 <path d="M90 55 C100 60 100 75 85 75 Z" fill="#D4AF37"/>
-                <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#FFFDF0" stroke="#D4AF37" stroke-width="2"/>
+                <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#111" stroke="#D4AF37" stroke-width="2"/>
                 <path d="M85 85 Q98 105 108 120" stroke="#E8BEAC" stroke-width="6" stroke-linecap="round"/>
             </svg>
         </div>
@@ -554,10 +594,10 @@ section{
                 <circle cx="60" cy="35" r="16" fill="#2B1B17"/>
                 <path d="M48 28 Q60 20 72 28" stroke="#D4AF37" stroke-width="3" fill="none"/>
                 <circle cx="60" cy="40" r="13" fill="#F3D0C1"/>
-                <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#FAF0E6"/>
-                <path d="M35 88 Q60 105 85 88" fill="#F5E6C8" stroke="#D4AF37" stroke-width="1.5"/>
+                <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#111"/>
+                <path d="M35 88 Q60 105 85 88" fill="#111" stroke="#D4AF37" stroke-width="1.5"/>
                 <path d="M50 55 Q60 75 70 55 M46 62 Q60 85 74 62" stroke="#D4AF37" stroke-width="2" fill="none"/>
-                <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#FAF0E6" stroke="#D4AF37" stroke-width="2"/>
+                <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#111" stroke="#D4AF37" stroke-width="2"/>
                 <path d="M45 120 Q60 200 75 120 M38 150 Q60 210 82 150" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
                 <path d="M38 85 Q22 105 12 120" stroke="#F3D0C1" stroke-width="5" stroke-linecap="round"/>
             </svg>
@@ -565,164 +605,118 @@ section{
     </div>
 
     <div class="scroll">
-        SCROLL TO DISCOVER
+        SCROLL DOWN
     </div>
 </div>
 
 <!-- INVITATION MESSAGE -->
 <section>
     <div class="small">Wedding Invitation</div>
-
-    <h2 class="section-title">
-        We are getting married
-    </h2>
-
+    <h2 class="section-title gold-text">We Are Getting Married</h2>
     <div class="line"></div>
-
     <p class="message">
         With joyful hearts and the blessings of our families,
         we invite you to celebrate the beginning of our
         beautiful journey together.
-
-        Your presence will make our special day even more memorable.
     </p>
 </section>
 
 <!-- DETAILS & CEREMONY TIMES -->
 <section class="details">
-
     <div class="small">Program & Schedule</div>
-
-    <h2 class="section-title">
-        Wedding Ceremony Details
-    </h2>
-
+    <h2 class="section-title gold-text">Ceremony Details</h2>
     <div class="line"></div>
 
     <div class="detail-grid">
-
         <div class="card">
-            <div class="icon">💍</div>
-            <h3>Poruwa Ceremony</h3>
-            <p>
-                Wednesday<br>
-                21st October 2026<br>
-                <span class="time-highlight">9:14 AM</span>
-            </p>
+            <div class="icon">👑</div>
+            <h3 class="gold-text">Poruwa Ceremony</h3>
+            <p>Wednesday<br>21st October 2026<br><span class="time-highlight">9:14 AM</span></p>
         </div>
 
         <div class="card">
             <div class="icon">✍️</div>
-            <h3>Registration</h3>
-            <p>
-                Official Signing & Blessings<br>
-                21st October 2026<br>
-                <span class="time-highlight">10:19 AM</span>
-            </p>
+            <h3 class="gold-text">Registration</h3>
+            <p>Official Signing<br>21st October 2026<br><span class="time-highlight">10:19 AM</span></p>
         </div>
 
         <div class="card">
-            <div class="icon">🍽️</div>
-            <h3>Reception</h3>
-            <p>
-                Celebration & Lunch<br>
-                21st October 2026<br>
-                <span class="time-highlight">10:40 AM Onwards</span>
-            </p>
+            <div class="icon">🥂</div>
+            <h3 class="gold-text">Reception</h3>
+            <p>Celebration & Lunch<br>21st October 2026<br><span class="time-highlight">10:40 AM Onwards</span></p>
         </div>
-
     </div>
-
 </section>
 
 <!-- COUNTDOWN -->
 <section class="countdown">
-
     <div class="small">Counting the moments</div>
-
-    <h2 class="section-title">
-        Until We Say “I Do”
-    </h2>
-
+    <h2 class="section-title gold-text">Until We Say “I Do”</h2>
     <div class="line"></div>
 
     <div class="timer">
-
-        <div class="time-box">
-            <strong id="days">0</strong>
-            <span>DAYS</span>
-        </div>
-
-        <div class="time-box">
-            <strong id="hours">0</strong>
-            <span>HOURS</span>
-        </div>
-
-        <div class="time-box">
-            <strong id="minutes">0</strong>
-            <span>MINUTES</span>
-        </div>
-
-        <div class="time-box">
-            <strong id="seconds">0</strong>
-            <span>SECONDS</span>
-        </div>
-
+        <div class="time-box"><strong id="days">0</strong><span>DAYS</span></div>
+        <div class="time-box"><strong id="hours">0</strong><span>HOURS</span></div>
+        <div class="time-box"><strong id="minutes">0</strong><span>MINUTES</span></div>
+        <div class="time-box"><strong id="seconds">0</strong><span>SECONDS</span></div>
     </div>
-
 </section>
 
-<!-- LOCATION / GOOGLE MAPS -->
-<section class="venue-section">
-
-    <div class="small">Location Details</div>
-
-    <h2 class="section-title">
-        Marabedda Gardens Resort
-    </h2>
-
+<!-- PRE-SHOOT GALLERY -->
+<section class="gallery-section">
+    <div class="small">Our Memories</div>
+    <h2 class="section-title gold-text">Pre-Shoot Gallery</h2>
     <div class="line"></div>
 
-    <p class="message">
-        58 Dimbulkumbura Road, Rikillagaskada 20730<br>
-        We can't wait to celebrate with you!
-    </p>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=800&auto=format&fit=crop" alt="Pre-shoot 1">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop" alt="Pre-shoot 2">
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Pre-shoot 3">
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION / MAP -->
+<section class="venue-section">
+    <div class="small">Location Details</div>
+    <h2 class="section-title gold-text">Marabedda Gardens Resort</h2>
+    <div class="line"></div>
+    <p class="message">58 Dimbulkumbura Road, Rikillagaskada 20730</p>
 
     <div class="map-container">
-        <iframe 
-            src="https://maps.google.com/maps?q=Marabedda%20Gardens%20Resort%20Rikillagaskada&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-            allowfullscreen="" 
-            loading="lazy">
-        </iframe>
+        <iframe src="https://maps.google.com/maps?q=Marabedda%20Gardens%20Resort%20Rikillagaskada&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <a class="map-btn"
-       href="https://maps.app.goo.gl/i33fomVz2q7ouui37"
-       target="_blank">
-       📍 OPEN IN GOOGLE MAPS
-    </a>
-
+    <a class="map-btn" href="https://maps.app.goo.gl/i33fomVz2q7ouui37" target="_blank">📍 OPEN IN GOOGLE MAPS</a>
 </section>
 
 <!-- RSVP SECTION -->
 <section class="rsvp-section">
-
     <div class="small">Are You Coming?</div>
-
-    <h2 class="section-title">
-        RSVP Now
-    </h2>
-
+    <h2 class="section-title gold-text">RSVP Now</h2>
     <div class="line"></div>
 
     <div class="form-box">
         <div class="form-group">
-            <label>Your Full Name / නම</label>
-            <input type="text" id="rsvpName" class="form-control" placeholder="Enter your name" required>
+            <label>Your Name / නම</label>
+            <input type="text" id="rsvpName" class="form-control" placeholder="Enter your full name" required>
         </div>
 
         <div class="form-group">
-            <label>Number of Guests / පැමිණෙන සංඛ්‍යාව</label>
+            <label>Send RSVP To / යැවිය යුතු අංකය</label>
+            <select id="rsvpPhone" class="form-control">
+                <option value="9477391526">Groom (9477391526)</option>
+                <option value="94713862038">Bride (94713862038)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Number of Guests / සංඛ්‍යාව</label>
             <select id="rsvpGuests" class="form-control">
                 <option value="1 Person">1 Person</option>
                 <option value="2 Persons">2 Persons</option>
@@ -734,26 +728,18 @@ section{
             <label>Will You Attend? / පැමිණීම</label>
             <select id="rsvpStatus" class="form-control">
                 <option value="Joyfully Accepts">Joyfully Accepts (පැමිණෙමි)</option>
-                <option value="Regretfully Declines">Regretfully Declines (පැමිණීමට නොහැක)</option>
+                <option value="Regretfully Declines">Regretfully Declines (නොපැමිණේ)</option>
             </select>
         </div>
 
-        <button class="submit-btn" onclick="sendRSVP()">
-            📲 Send RSVP via WhatsApp
-        </button>
+        <button class="submit-btn" onclick="sendRSVP()">📲 Send RSVP via WhatsApp</button>
     </div>
-
 </section>
 
-<!-- BLESSINGS & WISHES SECTION -->
+<!-- WISHES SECTION -->
 <section class="wishes-section">
-
     <div class="small">Blessings Wall</div>
-
-    <h2 class="section-title">
-        Leave Your Wishes
-    </h2>
-
+    <h2 class="section-title gold-text">Leave Your Wishes</h2>
     <div class="line"></div>
 
     <div class="form-box" style="margin-bottom:40px;">
@@ -763,41 +749,29 @@ section{
         </div>
 
         <div class="form-group">
-            <label>Your Message / සුබ පැතුම</label>
-            <textarea id="wishMessage" class="form-control" rows="4" placeholder="Write your warm blessings for Jagath & Sulochana..." required></textarea>
+            <label>Your Wish / සුබ පැතුම</label>
+            <textarea id="wishMessage" class="form-control" rows="4" placeholder="Write your warm blessings..." required></textarea>
         </div>
 
-        <button class="submit-btn" onclick="postWish()">
-            💖 Post Wish
-        </button>
+        <button class="submit-btn" onclick="postWish()">💖 Post Wish</button>
     </div>
 
-    <!-- DISPLAYED WISHES WALL -->
     <div class="wishes-grid" id="wishesGrid">
         <div class="wish-card">
             <h4>Anura & Family</h4>
-            <p>Wishing you both a lifetime of eternal love, peace, and endless happiness together! ❤️</p>
+            <p>Wishing you both a lifetime of eternal love, peace, and happiness together! ✨</p>
             <span class="date-tag">Jagath & Sulochana Wedding</span>
         </div>
     </div>
-
 </section>
 
 <!-- FOOTER -->
 <div class="footer">
-
-    <div class="names">
-        Jagath & Sulochana
-    </div>
-
-    <p>
-        21 OCTOBER 2026 • OUR FOREVER BEGINS
-    </p>
-
+    <div class="names gold-text">Jagath & Sulochana</div>
+    <p>21 OCTOBER 2026 • OUR FOREVER BEGINS</p>
 </div>
 
 <script>
-
 function openInvitation(){
     document.getElementById("gatekeeper").classList.add("open");
     document.body.classList.add("opened");
@@ -806,7 +780,6 @@ function openInvitation(){
 const weddingDate = new Date("October 21, 2026 09:14:00").getTime();
 
 function countdown(){
-
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
@@ -818,23 +791,18 @@ function countdown(){
         return;
     }
 
-    const days = Math.floor(distance / (1000*60*60*24));
-    const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
-    const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-    const seconds = Math.floor((distance % (1000*60))/1000);
-
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24));
+    document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60))/(1000*60));
+    document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60))/1000);
 }
 
 countdown();
-setInterval(countdown,1000);
+setInterval(countdown, 1000);
 
-/* RSVP FUNCTION */
 function sendRSVP(){
     const name = document.getElementById("rsvpName").value;
+    const phone = document.getElementById("rsvpPhone").value;
     const guests = document.getElementById("rsvpGuests").value;
     const status = document.getElementById("rsvpStatus").value;
 
@@ -843,14 +811,10 @@ function sendRSVP(){
         return;
     }
 
-    // Your WhatsApp Number (Edit here if needed)
-    const phone = "94770000000"; 
-    const message = `*WEDDING RSVP*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Guests:* ${encodeURIComponent(guests)}%0A*Status:* ${encodeURIComponent(status)}`;
-    
+    const message = `*ROYAL WEDDING RSVP*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Guests:* ${encodeURIComponent(guests)}%0A*Status:* ${encodeURIComponent(status)}`;
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
 }
 
-/* BLESSINGS & WISHES FUNCTION */
 function postWish(){
     const name = document.getElementById("wishName").value;
     const msg = document.getElementById("wishMessage").value;
@@ -869,14 +833,11 @@ function postWish(){
 
     document.getElementById("wishName").value = "";
     document.getElementById("wishMessage").value = "";
-
-    alert("Thank you for your warm blessing! ❤️");
 }
 
 function escapeHtml(text) {
     return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
-
 </script>
 
 </body>
