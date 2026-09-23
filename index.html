@@ -1,910 +1,497 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Jagath & Sulochana | Royal Black & Gold Wedding Invitation</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@600;700&family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+Sinhala:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family: 'Cormorant Garamond', 'Noto Serif Sinhala', serif;
-    background:#080808; /* Pure Deep Black Background */
-    color:#f4e3b2;
-    overflow-x:hidden;
-}
-
-/* BLACK & GOLD THEME GRADIENTS & SINGLE BORDER */
-.gold-text{
-    background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* SINGLE LINE GOLD BORDER */
-.page-border {
-    border: 1px solid #d4af37;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(0,0,0,0.9);
-}
-
-/* CAR SLIDER LOCK SCREEN */
-#gatekeeper{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background:radial-gradient(circle, #1a1a1a 0%, #000000 100%);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-    transition:opacity 1.2s ease, visibility 1.2s ease;
-    text-align:center;
-    padding:20px;
-}
-
-#gatekeeper.open{
-    opacity:0;
-    visibility:hidden;
-}
-
-.gate-names{
-    font-family:'Cinzel Decorative', serif;
-    font-size:32px;
-    margin-bottom:10px;
-    letter-spacing:2px;
-}
-
-.gate-sub{
-    color:#d4af37;
-    font-size:12px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    margin-bottom:60px;
-}
-
-/* CAR SLIDER CONTAINER */
-.slider-container {
-    width: 300px;
-    height: 65px;
-    background: #111111;
-    border: 1px solid #d4af37;
-    border-radius: 50px;
-    position: relative;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-}
-
-.slider-text {
-    width: 100%;
-    text-align: right;
-    padding-right: 25px;
-    color: #d4af37;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    user-select: none;
-    animation: blink 2s infinite;
-}
-
-.car-slider-btn {
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(135deg, #bf953f, #aa771c);
-    border-radius: 50%;
-    position: absolute;
-    left: 5px;
-    top: 5px;
-    cursor: grab;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-    touch-action: none;
-    transition: background 0.3s;
-}
-
-.car-slider-btn i {
-    color: #000;
-    font-size: 24px;
-}
-
-@keyframes blink{
-    0%, 100%{ opacity:0.3; }
-    50%{ opacity:1; }
-}
-
-/* HERO SECTION */
-.hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    position:relative;
-    background: linear-gradient(rgba(8, 8, 8, 0.92), rgba(0, 0, 0, 0.95)),
-    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop");
-    background-size:cover;
-    background-position:center;
-    padding:40px 20px;
-    overflow:hidden;
-}
-
-.hero-content{
-    animation:fadeIn 2s ease;
-    z-index:2;
-}
-
-.small{
-    letter-spacing:5px;
-    font-size:14px;
-    text-transform:uppercase;
-    color:#d4af37;
-    margin-bottom:20px;
-}
-
-.names{
-    font-family:'Cinzel Decorative', serif;
-    font-size:clamp(35px, 8vw, 75px);
-    line-height:1.2;
-    font-weight:700;
-}
-
-.amp{
-    font-size:35px;
-    color:#d4af37;
-    margin:10px 0;
-}
-
-.date{
-    margin-top:20px;
-    font-size:16px;
-    letter-spacing:5px;
-    color:#f4e3b2;
-}
-
-/* ICON ANIMATIONS */
-.animated-icon {
-    font-size: 32px;
-    color: #d4af37;
-    margin-bottom: 15px;
-    display: inline-block;
-    animation: floatIcon 3s ease-in-out infinite;
-}
-
-@keyframes floatIcon {
-    0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 2px #d4af37); }
-    50% { transform: translateY(-8px) scale(1.15); filter: drop-shadow(0 0 8px #fcf6ba); }
-}
-
-/* WEDDING COUPLE VECTOR ANIMATION CONTAINER */
-.couple-stage{
-    margin-top:25px;
-    height:220px;
-    position:relative;
-    width:320px;
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    z-index:2;
-}
-
-.groom-wrapper, .bride-wrapper{
-    position:absolute;
-    bottom:0;
-    transition:transform 2s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.groom-wrapper{ transform:translateX(-140px); }
-.bride-wrapper{ transform:translateX(140px); }
-
-body.opened .groom-wrapper{ transform:translateX(-25px); }
-body.opened .bride-wrapper{ transform:translateX(25px); }
-
-.couple-img{
-    height:190px;
-    filter:drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
-}
-
-.love-heart{
-    position:absolute;
-    top:10px;
-    font-size:32px;
-    opacity:0;
-    transform:scale(0);
-    transition:transform 0.8s ease 1.8s, opacity 0.8s ease 1.8s;
-}
-
-body.opened .love-heart{
-    opacity:1;
-    transform:scale(1.2);
-    animation:heartbeat 1.5s infinite 2.6s;
-}
-
-@keyframes heartbeat{
-    0%, 100%{ transform:scale(1.2); }
-    50%{ transform:scale(1.4); }
-}
-
-.scroll{
-    margin-top:25px;
-    font-size:12px;
-    letter-spacing:3px;
-    color:#d4af37;
-}
-
-section{
-    padding:80px 25px;
-    text-align:center;
-    margin: 25px auto;
-    max-width: 1000px;
-    background: #111111;
-    border-radius: 8px;
-}
-
-.section-title{
-    font-family:'Cinzel Decorative', serif;
-    font-size:32px;
-    font-weight:600;
-}
-
-.line{
-    width:80px;
-    height:1px;
-    background:linear-gradient(90deg, transparent, #d4af37, transparent);
-    margin:20px auto 35px;
-}
-
-.message{
-    max-width:650px;
-    margin:auto;
-    line-height:2;
-    color:#f4e3b2;
-    font-size:18px;
-}
-
-.details{
-    background:#111111;
-}
-
-.detail-grid{
-    max-width:950px;
-    margin:45px auto 0;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.card{
-    padding:35px 20px;
-    border:1px solid #d4af37;
-    background:#161616;
-    border-radius:6px;
-    transition:transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 8px 20px rgba(212, 175, 55, 0.25);
-}
-
-.card h3{
-    font-family:'Cinzel Decorative', serif;
-    font-size:20px;
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#f4e3b2;
-    font-size:16px;
-    line-height:1.8;
-}
-
-.time-highlight{
-    color:#d4af37;
-    font-weight:700;
-}
-
-/* COUNTDOWN */
-.timer{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-top:35px;
-    flex-wrap:wrap;
-}
-
-.time-box{
-    min-width:90px;
-    padding:20px 10px;
-    background:#161616;
-    border:1px solid #d4af37;
-    border-radius:6px;
-}
-
-.time-box strong{
-    display:block;
-    font-family:'Cinzel Decorative', serif;
-    font-size:32px;
-    color:#d4af37;
-}
-
-.time-box span{
-    font-size:11px;
-    letter-spacing:2px;
-    color:#f4e3b2;
-}
-
-/* PHOTO GALLERY */
-/* PHOTO GALLERY */
-.gallery-grid{
-    max-width:1000px;
-    margin:40px auto 0;
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-    gap:20px;
-}
-
-.gallery-item{
-    position:relative;
-    overflow:hidden;
-    border-radius:6px;
-    border:1px solid #d4af37;
-    height:300px;
-}
-
-.gallery-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform 0.5s ease;
-}
-
-.gallery-item:hover img{
-    transform:scale(1.1);
-
-}
-
-/* LOCATION / MAP */
-.map-container{
-    max-width:850px;
-    margin:30px auto;
-    border-radius:8px;
-    overflow:hidden;
-    border:1px solid #d4af37;
-}
-
-.map-container iframe{
-    width:100%;
-    height:380px;
-    border:0;
-}
-
-.map-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:14px 32px;
-    background:linear-gradient(135deg, #bf953f, #aa771c);
-    color:#000;
-    text-decoration:none;
-    font-size:14px;
-    letter-spacing:2px;
-    border-radius:30px;
-    transition:.3s;
-    font-weight:700;
-}
-
-.map-btn:hover{
-    box-shadow:0 0 20px rgba(212, 175, 55, 0.6);
-    transform:scale(1.03);
-}
-
-/* RSVP SECTION */
-.form-box{
-    max-width:550px;
-    margin:0 auto;
-    background:#161616;
-    padding:40px 30px;
-    border:1px solid #d4af37;
-    border-radius:8px;
-    text-align:left;
-}
-
-.form-group{
-    margin-bottom:20px;
-}
-
-.form-group label{
-    display:block;
-    font-size:13px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    color:#d4af37;
-    margin-bottom:8px;
-    font-weight:600;
-}
-
-.form-control{
-    width:100%;
-    padding:12px 15px;
-    border:1px solid #d4af37;
-    border-radius:4px;
-    font-family:'Cormorant Garamond', serif;
-    font-size:16px;
-    outline:none;
-    background:#080808;
-    color:#fff;
-}
-
-.form-control:focus{
-    border-color:#fcf6ba;
-    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
-}
-
-.submit-btn{
-    width:100%;
-    padding:15px;
-    background:linear-gradient(135deg, #bf953f, #aa771c);
-    color:#000;
-    border:none;
-    border-radius:30px;
-    font-size:14px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    font-weight:700;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.submit-btn:hover{
-    box-shadow:0 0 20px rgba(212, 175, 55, 0.6);
-}
-
-/* WISHES SECTION */
-.wishes-grid{
-    max-width:850px;
-    margin:40px auto 0;
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
-    gap:20px;
-}
-
-.wish-card{
-    background:#161616;
-    border:1px solid #d4af37;
-    padding:20px;
-    border-radius:6px;
-    text-align:left;
-}
-
-.wish-card h4{
-    font-family:'Cinzel Decorative', serif;
-    font-size:18px;
-    color:#d4af37;
-    margin-bottom:8px;
-}
-
-.wish-card p{
-    font-size:15px;
-    color:#f4e3b2;
-    line-height:1.6;
-}
-
-.wish-card .date-tag{
-    font-size:11px;
-    color:#d4af37;
-    margin-top:12px;
-    display:block;
-}
-
-.footer{
-    padding:70px 20px;
-    background:#000000;
-    border-top:1px solid #d4af37;
-    text-align:center;
-}
-
-.footer .names{
-    font-size:32px;
-}
-
-.footer p{
-    margin-top:20px;
-    font-size:13px;
-    letter-spacing:3px;
-    color:#d4af37;
-}
-
-@keyframes fadeIn{
-    from{ opacity:0; transform:translateY(30px); }
-    to{ opacity:1; transform:translateY(0); }
-}
-
-@media(max-width:768px){
-    .detail-grid{
-        grid-template-columns:1fr;
-        max-width:400px;
-    }
-    section{
-        padding:50px 15px;
-    }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jagath & Sulochana - Wedding Invitation</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #f4e3b2;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .gold-text {
+            background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* MAIN CONTAINER & BORDER */
+        .invitation-card {
+            width: 100%;
+            max-width: 480px;
+            background: #121212;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,0,0,0.9);
+            overflow: hidden;
+            padding: 20px 15px;
+        }
+
+        .page-border {
+            border: 1px solid #d4af37;
+            padding: 25px 15px;
+            position: relative;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* HERO & COUPLE STAGE */
+        .hero-section {
+            padding-top: 30px;
+        }
+
+        .main-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            margin: 15px 0;
+        }
+
+        .sub-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        /* COUPLE STAGE - SPLIT MERGE ANIMATION */
+        .couple-stage {
+            margin: 25px auto 10px;
+            height: 240px;
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .groom-img, .bride-img {
+            max-height: 220px;
+            width: auto;
+            object-fit: contain;
+            position: absolute;
+            opacity: 0;
+            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.5s ease;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+        }
+
+        .groom-img {
+            transform: translateX(-140px);
+        }
+
+        .bride-img {
+            transform: translateX(140px);
+        }
+
+        body.opened .groom-img {
+            opacity: 1;
+            transform: translateX(-30px);
+            animation: floatGlowGroom 3.5s ease-in-out infinite alternate 1.6s;
+        }
+
+        body.opened .bride-img {
+            opacity: 1;
+            transform: translateX(30px);
+            animation: floatGlowBride 3.5s ease-in-out infinite alternate 1.6s;
+        }
+
+        @keyframes floatGlowGroom {
+            0% { transform: translateX(-30px) translateY(0px); }
+            100% { transform: translateX(-30px) translateY(-8px); }
+        }
+
+        @keyframes floatGlowBride {
+            0% { transform: translateX(30px) translateY(0px); }
+            100% { transform: translateX(30px) translateY(-8px); }
+        }
+
+        /* UNLOCK CAR SLIDER OVERLAY */
+        .unlock-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        body.opened .unlock-overlay {
+            transform: translateY(-100%);
+        }
+
+        .slider-container {
+            width: 280px;
+            height: 60px;
+            background: #1a1a1a;
+            border: 1px solid #d4af37;
+            border-radius: 30px;
+            position: relative;
+            padding: 5px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .slider-text {
+            width: 100%;
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #d4af37;
+            pointer-events: none;
+        }
+
+        .car-handle {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #bf953f, #fcf6ba, #aa771c);
+            border-radius: 50%;
+            position: absolute;
+            left: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            touch-action: none;
+        }
+
+        /* DETAILS SECTION */
+        .details-section h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .line {
+            width: 60px;
+            height: 1px;
+            background: #d4af37;
+            margin: 15px auto;
+        }
+
+        .info-box {
+            margin: 20px 0;
+        }
+
+        .info-box i {
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        /* PHOTO GALLERY (PORTRAIT OPTIMIZED) */
+        .gallery-grid {
+            max-width: 1000px;
+            margin: 20px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid #d4af37;
+            height: auto;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* BLESSINGS & FORM */
+        .wish-form input, .wish-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: #f4e3b2;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .wish-form input:focus, .wish-form textarea:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #bf953f, #fcf6ba, #aa771c);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 100%;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-gold:hover {
+            opacity: 0.9;
+        }
+
+        .wishes-display {
+            margin-top: 20px;
+            max-height: 250px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .single-wish {
+            background: #1a1a1a;
+            border-left: 2px solid #d4af37;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+        }
+
+        .single-wish strong {
+            color: #d4af37;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* RSVP FOOTER */
+        .rsvp-contacts {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+
+        .rsvp-contacts a {
+            color: #f4e3b2;
+            text-decoration: none;
+        }
+
+        .rsvp-contacts a:hover {
+            color: #d4af37;
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- CAR SLIDER LOCK GATE -->
-<div id="gatekeeper">
-    <div class="gate-names gold-text">Jagath & Sulochana</div>
-    <div class="gate-sub">Royal Wedding Invitation</div>
-
-    <!-- CAR SLIDER -->
-    <div class="slider-container" id="sliderContainer">
-        <div class="slider-text">Slide Car to Open</div>
-        <div class="car-slider-btn" id="carBtn">
-            <i class="fa-solid fa-car-side"></i>
-        </div>
-    </div>
-</div>
-
-<!-- MAIN HERO SECTION -->
-<div class="hero page-border">
-    <div class="hero-content">
-        <i class="fa-solid fa-crown animated-icon"></i>
-        <div class="small">Together with their families</div>
-
-        <div class="names gold-text">
-            Jagath
-            <div class="amp">&</div>
-            Sulochana
-        </div>
-
-        <div class="date">
-            21 • OCTOBER • 2026
+    <!-- UNLOCK SLIDER OVERLAY -->
+    <div class="unlock-overlay" id="unlockOverlay">
+        <h2 class="sub-title">WEDDING INVITATION</h2>
+        <h1 class="main-title gold-text">Jagath & Sulochana</h1>
+        <div class="slider-container" id="sliderContainer">
+            <div class="slider-text">SLIDE CAR TO UNLOCK</div>
+            <div class="car-handle" id="carHandle">
+                <i class="fa-solid fa-car-side"></i>
+            </div>
         </div>
     </div>
 
-    <!-- KANDYAN WEDDING COUPLE ANIMATION -->
-    <div class="couple-stage">
-        <div class="love-heart">💖</div>
+    <!-- MAIN INVITATION CARD -->
+    <div class="invitation-card">
 
-        <div class="groom-wrapper">
-            <svg class="couple-img" viewBox="0 0 120 220">
-                <path d="M45 25 L60 5 L75 25 L68 28 L60 18 L52 28 Z" fill="#D4AF37"/>
-                <circle cx="60" cy="8" r="3" fill="#D4AF37"/>
-                <circle cx="60" cy="38" r="14" fill="#E8BEAC"/>
-                <path d="M35 55 Q60 48 85 55 L90 115 Q60 120 30 115 Z" fill="#161616"/>
-                <path d="M60 52 L60 118 M45 60 L75 60 M40 80 L80 80 M42 100 L78 100" stroke="#D4AF37" stroke-width="2.5"/>
-                <path d="M30 55 C20 60 20 75 35 75 Z" fill="#D4AF37"/>
-                <path d="M90 55 C100 60 100 75 85 75 Z" fill="#D4AF37"/>
-                <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
-                <path d="M85 85 Q98 105 108 120" stroke="#E8BEAC" stroke-width="6" stroke-linecap="round"/>
-            </svg>
-        </div>
+        <!-- HERO SECTION -->
+        <section class="page-border hero-section">
+            <div class="sub-title">WE ARE GETTING MARRIED</div>
+            <h1 class="main-title gold-text">Jagath & Sulochana</h1>
+            <div class="line"></div>
+            
+            <!-- COUPLE SPLIT MERGE ART -->
+            <div class="couple-stage">
+                <img src="https://lh3.googleusercontent.com/d/1Ga4J-IkftkcD-8ReFG8s1_-VuI0z-Ctg" alt="Groom" class="groom-img">
+                <img src="https://lh3.googleusercontent.com/d/1oTNPUuk95Nd7U6WpBsuq8WUwT7LlnB2K" alt="Bride" class="bride-img">
+            </div>
 
-        <div class="bride-wrapper">
-            <svg class="couple-img" viewBox="0 0 120 220">
-                <circle cx="60" cy="35" r="16" fill="#2B1B17"/>
-                <path d="M48 28 Q60 20 72 28" stroke="#D4AF37" stroke-width="3" fill="none"/>
-                <circle cx="60" cy="40" r="13" fill="#F3D0C1"/>
-                <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#161616"/>
-                <path d="M35 88 Q60 105 85 88" fill="#161616" stroke="#D4AF37" stroke-width="1.5"/>
-                <path d="M50 55 Q60 75 70 55 M46 62 Q60 85 74 62" stroke="#D4AF37" stroke-width="2" fill="none"/>
-                <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
-                <path d="M45 120 Q60 200 75 120 M38 150 Q60 210 82 150" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-                <path d="M38 85 Q22 105 12 120" stroke="#F3D0C1" stroke-width="5" stroke-linecap="round"/>
-            </svg>
-        </div>
+            <p style="font-size: 0.85rem; margin-top: 15px; letter-spacing: 1px;">SAVE THE DATE</p>
+            <h3 style="font-family: 'Cinzel', serif; color: #d4af37; margin-top: 5px;">21 OCTOBER 2026</h3>
+        </section>
+
+        <!-- VENUE & TIME SECTION -->
+        <section class="page-border details-section">
+            <i class="fa-solid fa-location-dot gold-text" style="font-size: 1.8rem;"></i>
+            <h2 class="gold-text" style="margin-top: 10px;">VENUE & TIME</h2>
+            <div class="line"></div>
+
+            <div class="info-box">
+                <p><strong>Marabedda Gardens Resort</strong></p>
+                <p style="font-size: 0.85rem; color: #aaa;">Rikillagaskada</p>
+            </div>
+
+            <div class="info-box">
+                <p><i class="fa-regular fa-clock"></i></p>
+                <p>Time: 09:30 AM Onwards</p>
+            </div>
+        </section>
+
+        <!-- PRE-SHOOT GALLERY -->
+        <section class="page-border">
+            <i class="fa-solid fa-camera-retro gold-text" style="font-size: 1.8rem;"></i>
+            <h2 class="gold-text" style="margin-top: 10px; font-family: 'Cinzel', serif;">OUR MOMENTS</h2>
+            <div class="line"></div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1lu-Vek58A86oHPs7GAKV6noea-qtLaNE" alt="Pre-shoot 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1eAtA9e_avMWk0wBteuzIHhwS_lF2fcyT" alt="Pre-shoot 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1H9jyWqSTDz_zO-R-x_mpGpmcCTC1i1DZ" alt="Pre-shoot 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://lh3.googleusercontent.com/d/1cA-Lk3iJQhGsqAxP9Axm0m_ijOUr6pib" alt="Pre-shoot 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- BLESSINGS WALL / GOOGLE SHEETS WISHES -->
+        <section class="page-border">
+            <i class="fa-solid fa-heart gold-text" style="font-size: 1.8rem;"></i>
+            <h2 class="gold-text" style="margin-top: 10px; font-family: 'Cinzel', serif;">BLESSINGS WALL</h2>
+            <div class="line"></div>
+
+            <form class="wish-form" id="wishForm">
+                <input type="text" id="guestName" placeholder="Your Name" required>
+                <textarea id="guestWish" rows="3" placeholder="Leave your warm wishes..." required></textarea>
+                <button type="submit" class="btn-gold">SEND WISHES</button>
+            </form>
+
+            <div class="wishes-display" id="wishesDisplay">
+                <!-- Wishes will load dynamically here -->
+            </div>
+        </section>
+
+        <!-- RSVP SECTION -->
+        <section class="page-border">
+            <h2 class="gold-text" style="font-family: 'Cinzel', serif; font-size: 1.1rem;">R.S.V.P</h2>
+            <div class="line"></div>
+            <div class="rsvp-contacts">
+                <div>
+                    <p><strong>Sulochana</strong></p>
+                    <a href="tel:+94773915626"><i class="fa-solid fa-phone"></i> +94 77 391 5626</a>
+                </div>
+                <div>
+                    <p><strong>Jagath</strong></p>
+                    <a href="tel:+94713862038"><i class="fa-solid fa-phone"></i> +94 71 386 2038</a>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <div class="scroll">
-        <i class="fa-solid fa-angles-down animated-icon" style="font-size:20px;"></i><br>
-        SCROLL DOWN
-    </div>
-</div>
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // CAR SLIDER UNLOCK LOGIC
+        const handle = document.getElementById('carHandle');
+        const container = document.getElementById('sliderContainer');
+        let isDragging = false;
+        let startX, currentX;
 
-<!-- INVITATION MESSAGE -->
-<section class="page-border">
-    <i class="fa-solid fa-heart animated-icon"></i>
-    <div class="small">Wedding Invitation</div>
-    <h2 class="section-title gold-text">We Are Getting Married</h2>
-    <div class="line"></div>
-    <p class="message">
-        With joyful hearts and the blessings of our families,
-        we invite you to celebrate the beginning of our
-        beautiful journey together.
-    </p>
-</section>
+        const maxSlide = container.clientWidth - handle.clientWidth - 10;
 
-<!-- DETAILS & CEREMONY TIMES -->
-<section class="details page-border">
-    <i class="fa-solid fa-glass-cheers animated-icon"></i>
-    <div class="small">Program & Schedule</div>
-    <h2 class="section-title gold-text">Ceremony Details</h2>
-    <div class="line"></div>
+        function startDrag(e) {
+            isDragging = true;
+            startX = (e.touches ? e.touches[0].clientX : e.clientX) - handle.offsetLeft;
+        }
 
-    <div class="detail-grid">
-        <div class="card">
-            <i class="fa-solid fa-hands-praying animated-icon"></i>
-            <h3 class="gold-text">Poruwa Ceremony</h3>
-            <p>Wednesday<br>21st October 2026<br><span class="time-highlight">9:14 AM</span></p>
-        </div>
+        function doDrag(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            let x = (e.touches ? e.touches[0].clientX : e.clientX) - startX;
+            if (x < 5) x = 5;
+            if (x > maxSlide) x = maxSlide;
+            handle.style.left = x + 'px';
 
-        <div class="card">
-            <i class="fa-solid fa-pen-nib animated-icon"></i>
-            <h3 class="gold-text">Registration</h3>
-            <p>Official Signing<br>21st October 2026<br><span class="time-highlight">10:19 AM</span></p>
-        </div>
+            if (x >= maxSlide - 5) {
+                isDragging = false;
+                document.body.classList.add('opened');
+            }
+        }
 
-        <div class="card">
-            <i class="fa-solid fa-utensils animated-icon"></i>
-            <h3 class="gold-text">Reception</h3>
-            <p>Celebration & Lunch<br>21st October 2026<br><span class="time-highlight">10:40 AM Onwards</span></p>
-        </div>
-    </div>
-</section>
+        function stopDrag() {
+            if (!isDragging) return;
+            isDragging = false;
+            if (parseInt(handle.style.left) < maxSlide - 5) {
+                handle.style.left = '5px';
+            }
+        }
 
-<!-- COUNTDOWN -->
-<section class="countdown page-border">
-    <i class="fa-solid fa-clock animated-icon"></i>
-    <div class="small">Counting the moments</div>
-    <h2 class="section-title gold-text">Until We Say “I Do”</h2>
-    <div class="line"></div>
+        handle.addEventListener('mousedown', startDrag);
+        document.addEventListener('mousemove', doDrag);
+        document.addEventListener('mouseup', stopDrag);
 
-    <div class="timer">
-        <div class="time-box"><strong id="days">0</strong><span>DAYS</span></div>
-        <div class="time-box"><strong id="hours">0</strong><span>HOURS</span></div>
-        <div class="time-box"><strong id="minutes">0</strong><span>MINUTES</span></div>
-        <div class="time-box"><strong id="seconds">0</strong><span>SECONDS</span></div>
-    </div>
-</section>
+        handle.addEventListener('touchstart', startDrag);
+        document.addEventListener('touchmove', doDrag);
+        document.addEventListener('touchend', stopDrag);
 
-<!-- PRE-SHOOT GALLERY -->
-<section class="gallery-section page-border">
-    <i class="fa-solid fa-camera-retro animated-icon"></i>
-    <div class="small">Our Moments</div>
-    <h2 class="section-title gold-text">Pre-Shoot Gallery</h2>
-    <div class="line"></div>
+        // GOOGLE SHEETS WISHES BACKEND INTEGRATION
+        // මෙහි 'YOUR_SCRIPT_URL' වෙනුවට ඔබේ Google Apps Script Web App URL එක යොදන්න
+        const SCRIPT_URL = "YOUR_SCRIPT_URL"; 
 
-<div class="gallery-grid">
-    <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/1lu-Vek58A86oHPs7GAKV6noea-qtLaNE" alt="Pre-shoot 1">
-    </div>
-    <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/1eAtA9e_avMWk0wBteuzIHhwS_lF2fcyT" alt="Pre-shoot 2">
-    </div>
-    <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/1H9jyWqSTDz_zO-R-x_mpGpmcCTC1i1DZ" alt="Pre-shoot 3">
-    </div>
-    <div class="gallery-item">
-        <img src="https://lh3.googleusercontent.com/d/1cA-Lk3iJQhGsqAxP9Axm0m_ijOUr6pib" alt="Pre-shoot 4">
-    </div>
-</div>
-</section>
+        const wishForm = document.getElementById('wishForm');
+        const wishesDisplay = document.getElementById('wishesDisplay');
 
-<!-- LOCATION / MAP -->
-<section class="venue-section page-border">
-    <i class="fa-solid fa-map-location-dot animated-icon"></i>
-    <div class="small">Location Details</div>
-    <h2 class="section-title gold-text">Marabedda Gardens Resort</h2>
-    <div class="line"></div>
-    <p class="message">58 Dimbulkumbura Road, Rikillagaskada 20730</p>
+        wishForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const name = document.getElementById('guestName').value;
+            const wish = document.getElementById('guestWish').value;
 
-    <div class="map-container">
-        <iframe src="https://maps.google.com/maps?q=Marabedda%20Gardens%20Resort%20Rikillagaskada&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
-    </div>
+            // Immediate UI Update
+            const wishDiv = document.createElement('div');
+            wishDiv.className = 'single-wish';
+            wishDiv.innerHTML = `<strong>${name}</strong><p>${wish}</p>`;
+            wishesDisplay.prepend(wishDiv);
 
-    <a class="map-btn" href="https://maps.app.goo.gl/i33fomVz2q7ouui37" target="_blank"><i class="fa-solid fa-diamond-turn-right"></i> OPEN IN GOOGLE MAPS</a>
-</section>
+            wishForm.reset();
 
-<!-- RSVP SECTION -->
-<section class="rsvp-section page-border">
-    <i class="fa-solid fa-envelope-open-text animated-icon"></i>
-    <div class="small">Are You Coming?</div>
-    <h2 class="section-title gold-text">RSVP Now</h2>
-    <div class="line"></div>
-
-    <div class="form-box">
-        <div class="form-group">
-            <label>Your Name / නම</label>
-            <input type="text" id="rsvpName" class="form-control" placeholder="Enter your full name" required>
-        </div>
-
-        <div class="form-group">
-            <label>Send RSVP To / යැවිය යුතු අංකය</label>
-            <select id="rsvpPhone" class="form-control">
-                <option value="94773915626">Sulochana (94773915626)</option>
-                <option value="94713862038">Jagath (94713862038)</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Number of Guests / සංඛ්‍යාව</label>
-            <select id="rsvpGuests" class="form-control">
-                <option value="1 Person">1 Person</option>
-                <option value="2 Persons">2 Persons</option>
-                <option value="Family / 3+ Persons">Family / 3+ Persons</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Will You Attend? / පැමිණීම</label>
-            <select id="rsvpStatus" class="form-control">
-                <option value="Joyfully Accepts">Joyfully Accepts (පැමිණෙමි)</option>
-                <option value="Regretfully Declines">Regretfully Declines (නොපැමිණේ)</option>
-            </select>
-        </div>
-
-        <button class="submit-btn" onclick="sendRSVP()"><i class="fa-brands fa-whatsapp"></i> Send RSVP via WhatsApp</button>
-    </div>
-</section>
-
-<!-- WISHES SECTION -->
-<section class="wishes-section page-border">
-    <i class="fa-solid fa-comment-dots animated-icon"></i>
-    <div class="small">Blessings Wall</div>
-    <h2 class="section-title gold-text">Leave Your Wishes</h2>
-    <div class="line"></div>
-
-    <div class="form-box" style="margin-bottom:40px;">
-        <div class="form-group">
-            <label>Your Name / නම</label>
-            <input type="text" id="wishName" class="form-control" placeholder="Your name" required>
-        </div>
-
-        <div class="form-group">
-            <label>Your Wish / සුබ පැතුම</label>
-            <textarea id="wishMessage" class="form-control" rows="4" placeholder="Write your warm blessings..." required></textarea>
-        </div>
-
-        <button class="submit-btn" onclick="postWish()"><i class="fa-solid fa-paper-plane"></i> Post Wish</button>
-    </div>
-
-    <div class="wishes-grid" id="wishesGrid">
-        <div class="wish-card">
-            <h4>Anura & Family</h4>
-            <p>Wishing you both a lifetime of eternal love, peace, and happiness together! ✨</p>
-            <span class="date-tag">Jagath & Sulochana Wedding</span>
-        </div>
-    </div>
-</section>
-
-<!-- FOOTER -->
-<div class="footer">
-    <div class="names gold-text">Jagath & Sulochana</div>
-    <p>21 OCTOBER 2026 • OUR FOREVER BEGINS</p>
-</div>
-
-<script>
-// CAR SLIDER INTERACTION
-const carBtn = document.getElementById("carBtn");
-const sliderContainer = document.getElementById("sliderContainer");
-let isDragging = false;
-let startX, currentX, maxSlide;
-
-function startDrag(e) {
-    isDragging = true;
-    startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-    maxSlide = sliderContainer.clientWidth - carBtn.clientWidth - 10;
-}
-
-function onDrag(e) {
-    if (!isDragging) return;
-    const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-    let deltaX = clientX - startX;
-
-    if (deltaX < 0) deltaX = 0;
-    if (deltaX > maxSlide) deltaX = maxSlide;
-
-    carBtn.style.left = (deltaX + 5) + "px";
-
-    if (deltaX >= maxSlide - 5) {
-        isDragging = false;
-        openInvitation();
-    }
-}
-
-function stopDrag() {
-    if (!isDragging) return;
-    isDragging = false;
-    carBtn.style.transition = "left 0.3s ease";
-    carBtn.style.left = "5px";
-    setTimeout(() => { carBtn.style.transition = ""; }, 300);
-}
-
-carBtn.addEventListener("mousedown", startDrag);
-carBtn.addEventListener("touchstart", startDrag);
-
-window.addEventListener("mousemove", onDrag);
-window.addEventListener("touchmove", onDrag);
-
-window.addEventListener("mouseup", stopDrag);
-window.addEventListener("touchend", stopDrag);
-
-function openInvitation(){
-    document.getElementById("gatekeeper").classList.add("open");
-    document.body.classList.add("opened");
-}
-
-const weddingDate = new Date("October 21, 2026 09:14:00").getTime();
-
-function countdown(){
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    if(distance <= 0){
-        document.getElementById("days").innerHTML = "0";
-        document.getElementById("hours").innerHTML = "0";
-        document.getElementById("minutes").innerHTML = "0";
-        document.getElementById("seconds").innerHTML = "0";
-        return;
-    }
-
-    document.getElementById("days").innerHTML = Math.floor(distance / (1000*60*60*24));
-    document.getElementById("hours").innerHTML = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
-    document.getElementById("minutes").innerHTML = Math.floor((distance % (1000*60*60))/(1000*60));
-    document.getElementById("seconds").innerHTML = Math.floor((distance % (1000*60))/1000);
-}
-
-countdown();
-setInterval(countdown, 1000);
-
-function sendRSVP(){
-    const name = document.getElementById("rsvpName").value;
-    const phone = document.getElementById("rsvpPhone").value;
-    const guests = document.getElementById("rsvpGuests").value;
-    const status = document.getElementById("rsvpStatus").value;
-
-    if(!name){
-        alert("Please enter your name.");
-        return;
-    }
-
-    const message = `*ROYAL WEDDING RSVP*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Guests:* ${encodeURIComponent(guests)}%0A*Status:* ${encodeURIComponent(status)}`;
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-}
-
-function postWish(){
-    const name = document.getElementById("wishName").value;
-    const msg = document.getElementById("wishMessage").value;
-
-    if(!name || !msg){
-        alert("Please fill in both your name and wish message.");
-        return;
-    }
-
-    const grid = document.getElementById("wishesGrid");
-    const newCard = document.createElement("div");
-    newCard.className = "wish-card";
-    newCard.innerHTML = `<h4>${escapeHtml(name)}</h4><p>${escapeHtml(msg)}</p><span class="date-tag">Jagath & Sulochana Wedding</span>`;
-
-    grid.prepend(newCard);
-
-    document.getElementById("wishName").value = "";
-    document.getElementById("wishMessage").value = "";
-}
-
-function escapeHtml(text) {
-    return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-</script>
-
+            // Send to Google Sheets backend if URL is configured
+            if (SCRIPT_URL && SCRIPT_URL !== "YOUR_SCRIPT_URL") {
+                fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: name, wish: wish })
+                }).catch(err => console.error("Error sending wish:", err));
+            }
+        });
+    </script>
 </body>
 </html>
