@@ -194,32 +194,47 @@ body{
 }
 
 /* WEDDING COUPLE VECTOR ANIMATION CONTAINER */
-.couple-stage{
-    margin-top:25px;
-    height:220px;
-    position:relative;
-    width:320px;
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    z-index:2;
+/* COUPLE STAGE & ANIMATION */
+.couple-stage {
+    margin-top: 25px;
+    height: 240px;
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
 }
 
-.groom-wrapper, .bride-wrapper{
-    position:absolute;
-    bottom:0;
-    transition:transform 2s cubic-bezier(0.25, 1, 0.5, 1);
+.custom-couple-img {
+    max-height: 220px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.5s ease;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
 }
 
-.groom-wrapper{ transform:translateX(-140px); }
-.bride-wrapper{ transform:translateX(140px); }
+/* Envelope එක Open වූ පසු ක්‍රියාත්මක වන Animation */
+body.opened .custom-couple-img {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    /* Float & Glow Animation එක පටන් ගැනීම */
+    animation: floatGlow 3.5s ease-in-out infinite alternate 1.5s;
+}
 
-body.opened .groom-wrapper{ transform:translateX(-25px); }
-body.opened .bride-wrapper{ transform:translateX(25px); }
-
-.couple-img{
-    height:190px;
-    filter:drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+/* Floating & Glowing Keyframes */
+@keyframes floatGlow {
+    0% {
+        transform: translateY(0px) scale(1);
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+    }
+    100% {
+        transform: translateY(-10px) scale(1.02);
+        filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+    }
 }
 
 .love-heart{
