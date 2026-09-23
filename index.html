@@ -53,7 +53,7 @@
             text-align: center;
         }
 
-        /* HERO & COUPLE STAGE */
+        /* HERO & VIDEO STAGE */
         .hero-section {
             padding-top: 30px;
         }
@@ -72,58 +72,33 @@
             margin-bottom: 10px;
         }
 
-        /* COUPLE STAGE - SPLIT MERGE ANIMATION */
+        /* VIDEO STAGE STYLES */
         .couple-stage {
-            margin: 25px auto 10px;
+            margin: 20px auto 15px;
+            width: 100%;
+            max-width: 340px;
             height: 240px;
             position: relative;
-            width: 100%;
-            max-width: 320px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             z-index: 2;
             overflow: hidden;
-        }
-
-        .groom-img, .bride-img {
-            max-height: 220px;
-            width: auto;
-            object-fit: contain;
-            position: absolute;
+            border-radius: 8px;
+            border: 1px solid #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
             opacity: 0;
-            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.5s ease;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+            transform: scale(0.9);
+            transition: opacity 1.2s ease, transform 1.2s ease;
         }
 
-        .groom-img {
-            transform: translateX(-140px);
-        }
-
-        .bride-img {
-            transform: translateX(140px);
-        }
-
-        body.opened .groom-img {
+        body.opened .couple-stage {
             opacity: 1;
-            transform: translateX(-30px);
-            animation: floatGlowGroom 3.5s ease-in-out infinite alternate 1.6s;
+            transform: scale(1);
         }
 
-        body.opened .bride-img {
-            opacity: 1;
-            transform: translateX(30px);
-            animation: floatGlowBride 3.5s ease-in-out infinite alternate 1.6s;
-        }
-
-        @keyframes floatGlowGroom {
-            0% { transform: translateX(-30px) translateY(0px); }
-            100% { transform: translateX(-30px) translateY(-8px); }
-        }
-
-        @keyframes floatGlowBride {
-            0% { transform: translateX(30px) translateY(0px); }
-            100% { transform: translateX(30px) translateY(-8px); }
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            border: none;
+            object-fit: cover;
         }
 
         /* UNLOCK CAR SLIDER OVERLAY */
@@ -333,10 +308,13 @@
             <h1 class="main-title gold-text">Jagath & Sulochana</h1>
             <div class="line"></div>
             
-            <!-- COUPLE SPLIT MERGE ART -->
+            <!-- VIDEO STAGE (COUPLE ANIMATION REPLACED BY DRIVE VIDEO) -->
             <div class="couple-stage">
-                <img src="https://lh3.googleusercontent.com/d/1Ga4J-IkftkcD-8ReFG8s1_-VuI0z-Ctg" alt="Groom" class="groom-img">
-                <img src="https://lh3.googleusercontent.com/d/1oTNPUuk95Nd7U6WpBsuq8WUwT7LlnB2K" alt="Bride" class="bride-img">
+                <iframe 
+                    class="hero-video" 
+                    src="https://drive.google.com/file/d/13zuPtFnFveqY3OCIwMdfbk-Khuajpkvo/preview" 
+                    allow="autoplay">
+                </iframe>
             </div>
 
             <p style="font-size: 0.85rem; margin-top: 15px; letter-spacing: 1px;">SAVE THE DATE</p>
@@ -463,7 +441,6 @@
         document.addEventListener('touchend', stopDrag);
 
         // GOOGLE SHEETS WISHES BACKEND INTEGRATION
-        // මෙහි 'YOUR_SCRIPT_URL' වෙනුවට ඔබේ Google Apps Script Web App URL එක යොදන්න
         const SCRIPT_URL = "YOUR_SCRIPT_URL"; 
 
         const wishForm = document.getElementById('wishForm');
