@@ -18,16 +18,11 @@
     box-sizing:border-box;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Scroll කිරීම සම්පූර්ණයෙන්ම නවතා ඇත */
+body{
     font-family: 'Cormorant Garamond', 'Noto Serif Sinhala', serif;
-    background: #080808;
-    color: #f4e3b2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background:#080808;
+    color:#f4e3b2;
+    overflow-x:hidden;
 }
 
 .gold-text{
@@ -36,74 +31,24 @@ html, body {
     -webkit-text-fill-color: transparent;
 }
 
-.card-container {
-    width: 100%;
-    max-width: 480px;
-    height: 100vh;
-    max-height: 850px;
-    background: #111111;
+.page-border {
     border: 1px solid #d4af37;
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(0,0,0,0.9);
 }
 
-/* Page Setup */
-.page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 30px 20px 90px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(0.9) translateY(20px);
-    transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
-    overflow-y: auto; /* Page එක ඇතුලේ අන්තර්ගතය වැඩි නම් පමණක් සක්‍රීය වේ */
-}
-
-.page.active {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1) translateY(0);
-}
-
-/* Animations for Page Content */
-.anim-item {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: all 0.8s ease;
-}
-
-.page.active .anim-item {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.page.active .delay-1 { transition-delay: 0.2s; }
-.page.active .delay-2 { transition-delay: 0.4s; }
-.page.active .delay-3 { transition-delay: 0.6s; }
-
-/* GATEKEEPER LOCK */
 #gatekeeper{
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
     width:100%;
-    height:100%;
+    height:100vh;
     background:radial-gradient(circle, #1a1a1a 0%, #000000 100%);
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    z-index:999;
-    transition:opacity 1s ease, visibility 1s ease;
+    z-index:9999;
+    transition:opacity 1.2s ease, visibility 1.2s ease;
     text-align:center;
     padding:20px;
 }
@@ -115,22 +60,22 @@ html, body {
 
 .gate-names{
     font-family:'Cinzel Decorative', serif;
-    font-size:28px;
+    font-size:32px;
     margin-bottom:10px;
     letter-spacing:2px;
 }
 
 .gate-sub{
     color:#d4af37;
-    font-size:11px;
-    letter-spacing:3px;
+    font-size:12px;
+    letter-spacing:4px;
     text-transform:uppercase;
-    margin-bottom:40px;
+    margin-bottom:60px;
 }
 
 .slider-container {
-    width: 270px;
-    height: 60px;
+    width: 300px;
+    height: 65px;
     background: #111111;
     border: 1px solid #d4af37;
     border-radius: 50px;
@@ -138,15 +83,15 @@ html, body {
     padding: 5px;
     display: flex;
     align-items: center;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
 .slider-text {
     width: 100%;
     text-align: right;
-    padding-right: 20px;
+    padding-right: 25px;
     color: #d4af37;
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
     user-select: none;
@@ -154,8 +99,8 @@ html, body {
 }
 
 .car-slider-btn {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     background: linear-gradient(135deg, #bf953f, #aa771c);
     border-radius: 50%;
     position: absolute;
@@ -167,11 +112,12 @@ html, body {
     align-items: center;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
     touch-action: none;
+    transition: background 0.3s;
 }
 
 .car-slider-btn i {
     color: #000;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 @keyframes blink{
@@ -179,141 +125,215 @@ html, body {
     50%{ opacity:1; }
 }
 
-/* HERO ELEMENTS */
+/* ---------------- SCROLL ANIMATIONS (TEXT & SECTION REVEAL) ---------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-text {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.reveal-text.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delays for staggered animations */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    background: linear-gradient(rgba(8, 8, 8, 0.92), rgba(0, 0, 0, 0.95)),
+    url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop");
+    background-size:cover;
+    background-position:center;
+    padding:40px 20px;
+    overflow:hidden;
+}
+
+.hero-content{
+    z-index:2;
+}
+
 .small{
-    letter-spacing:4px;
-    font-size:12px;
+    letter-spacing:5px;
+    font-size:14px;
     text-transform:uppercase;
     color:#d4af37;
-    margin-bottom:15px;
+    margin-bottom:20px;
 }
 
 .names{
     font-family:'Cinzel Decorative', serif;
-    font-size: clamp(28px, 6vw, 42px);
+    font-size:clamp(35px, 8vw, 75px);
     line-height:1.2;
     font-weight:700;
 }
 
 .amp{
-    font-size:28px;
+    font-size:35px;
     color:#d4af37;
-    margin:5px 0;
+    margin:10px 0;
 }
 
 .date{
-    margin-top:15px;
-    font-size:14px;
-    letter-spacing:4px;
+    margin-top:20px;
+    font-size:16px;
+    letter-spacing:5px;
     color:#f4e3b2;
 }
 
 .animated-icon {
-    font-size: 28px;
+    font-size: 32px;
     color: #d4af37;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     display: inline-block;
     animation: floatIcon 3s ease-in-out infinite;
 }
 
 @keyframes floatIcon {
     0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 2px #d4af37); }
-    50% { transform: translateY(-6px) scale(1.1); filter: drop-shadow(0 0 8px #fcf6ba); }
+    50% { transform: translateY(-8px) scale(1.15); filter: drop-shadow(0 0 8px #fcf6ba); }
 }
 
-/* COUPLE ANIMATION STAGE */
 .couple-stage{
-    margin-top:15px;
-    height:160px;
+    margin-top:25px;
+    height:220px;
     position:relative;
-    width:260px;
+    width:320px;
     display:flex;
     justify-content:center;
     align-items:flex-end;
+    z-index:2;
 }
 
 .groom-wrapper, .bride-wrapper{
     position:absolute;
     bottom:0;
-    transition:transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+    transition:transform 2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.groom-wrapper{ transform:translateX(-100px); }
-.bride-wrapper{ transform:translateX(100px); }
+.groom-wrapper{ transform:translateX(-140px); }
+.bride-wrapper{ transform:translateX(140px); }
 
-body.opened .groom-wrapper{ transform:translateX(-20px); }
-body.opened .bride-wrapper{ transform:translateX(20px); }
+body.opened .groom-wrapper{ transform:translateX(-25px); }
+body.opened .bride-wrapper{ transform:translateX(25px); }
 
 .couple-img{
-    height:140px;
-    filter:drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+    height:190px;
+    filter:drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
 }
 
 .love-heart{
     position:absolute;
-    top:5px;
-    font-size:24px;
+    top:10px;
+    font-size:32px;
     opacity:0;
     transform:scale(0);
-    transition:transform 0.8s ease 1.5s, opacity 0.8s ease 1.5s;
+    transition:transform 0.8s ease 1.8s, opacity 0.8s ease 1.8s;
 }
 
 body.opened .love-heart{
     opacity:1;
-    transform:scale(1.1);
-    animation:heartbeat 1.5s infinite 2.2s;
+    transform:scale(1.2);
+    animation:heartbeat 1.5s infinite 2.6s;
 }
 
 @keyframes heartbeat{
-    0%, 100%{ transform:scale(1.1); }
-    50%{ transform:scale(1.3); }
+    0%, 100%{ transform:scale(1.2); }
+    50%{ transform:scale(1.4); }
 }
 
-/* SECTION STYLING */
+.scroll{
+    margin-top:25px;
+    font-size:12px;
+    letter-spacing:3px;
+    color:#d4af37;
+}
+
+section{
+    padding:80px 25px;
+    text-align:center;
+    margin: 25px auto;
+    max-width: 1000px;
+    background: #111111;
+    border-radius: 8px;
+}
+
 .section-title{
     font-family:'Cinzel Decorative', serif;
-    font-size:24px;
+    font-size:32px;
     font-weight:600;
 }
 
 .line{
-    width:70px;
+    width:80px;
     height:1px;
     background:linear-gradient(90deg, transparent, #d4af37, transparent);
-    margin:15px auto 25px;
+    margin:20px auto 35px;
 }
 
 .message{
-    max-width:350px;
+    max-width:650px;
     margin:auto;
-    line-height:1.8;
+    line-height:2;
     color:#f4e3b2;
-    font-size:16px;
+    font-size:18px;
+}
+
+.details{
+    background:#111111;
 }
 
 .detail-grid{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+    max-width:950px;
+    margin:45px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
 }
 
 .card{
-    padding:15px 10px;
+    padding:35px 20px;
     border:1px solid #d4af37;
     background:#161616;
     border-radius:6px;
+    transition:transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 8px 20px rgba(212, 175, 55, 0.25);
 }
 
 .card h3{
     font-family:'Cinzel Decorative', serif;
-    font-size:16px;
-    margin-bottom:5px;
+    font-size:20px;
+    margin-bottom:10px;
 }
 
 .card p{
     color:#f4e3b2;
-    font-size:13px;
+    font-size:16px;
+    line-height:1.8;
 }
 
 .time-highlight{
@@ -324,13 +344,14 @@ body.opened .love-heart{
 .timer{
     display:flex;
     justify-content:center;
-    gap:10px;
-    margin-top:20px;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
 }
 
 .time-box{
-    min-width:65px;
-    padding:12px 5px;
+    min-width:90px;
+    padding:20px 10px;
     background:#161616;
     border:1px solid #d4af37;
     border-radius:6px;
@@ -339,448 +360,450 @@ body.opened .love-heart{
 .time-box strong{
     display:block;
     font-family:'Cinzel Decorative', serif;
-    font-size:22px;
+    font-size:32px;
     color:#d4af37;
 }
 
 .time-box span{
-    font-size:9px;
-    letter-spacing:1px;
+    font-size:11px;
+    letter-spacing:2px;
     color:#f4e3b2;
 }
 
 .gallery-grid{
+    max-width:1000px;
+    margin:40px auto 0;
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    width:100%;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
 }
 
 .gallery-item{
+    position:relative;
     overflow:hidden;
     border-radius:6px;
     border:1px solid #d4af37;
-    height:130px;
+    height:300px;
 }
 
 .gallery-item img{
     width:100%;
     height:100%;
     object-fit:cover;
+    transition:transform 0.5s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.1);
 }
 
 .map-container{
-    width:100%;
+    max-width:850px;
+    margin:30px auto;
     border-radius:8px;
     overflow:hidden;
     border:1px solid #d4af37;
-    margin:15px 0;
 }
 
 .map-container iframe{
     width:100%;
-    height:180px;
+    height:380px;
     border:0;
 }
 
 .map-btn{
     display:inline-block;
-    padding:10px 20px;
+    margin-top:20px;
+    padding:14px 32px;
     background:linear-gradient(135deg, #bf953f, #aa771c);
     color:#000;
     text-decoration:none;
-    font-size:12px;
-    letter-spacing:1px;
+    font-size:14px;
+    letter-spacing:2px;
     border-radius:30px;
+    transition:.3s;
     font-weight:700;
 }
 
+.map-btn:hover{
+    box-shadow:0 0 20px rgba(212, 175, 55, 0.6);
+    transform:scale(1.03);
+}
+
 .form-box{
-    width:100%;
+    max-width:550px;
+    margin:0 auto;
     background:#161616;
-    padding:20px 15px;
+    padding:40px 30px;
     border:1px solid #d4af37;
     border-radius:8px;
     text-align:left;
 }
 
 .form-group{
-    margin-bottom:12px;
+    margin-bottom:20px;
 }
 
 .form-group label{
     display:block;
-    font-size:11px;
-    letter-spacing:1px;
+    font-size:13px;
+    letter-spacing:2px;
     text-transform:uppercase;
     color:#d4af37;
-    margin-bottom:4px;
+    margin-bottom:8px;
+    font-weight:600;
 }
 
 .form-control{
     width:100%;
-    padding:8px 10px;
+    padding:12px 15px;
     border:1px solid #d4af37;
     border-radius:4px;
     font-family:'Cormorant Garamond', serif;
-    font-size:14px;
+    font-size:16px;
     outline:none;
     background:#080808;
     color:#fff;
 }
 
+.form-control:focus{
+    border-color:#fcf6ba;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
 .submit-btn{
     width:100%;
-    padding:10px;
+    padding:15px;
     background:linear-gradient(135deg, #bf953f, #aa771c);
     color:#000;
     border:none;
     border-radius:30px;
-    font-size:12px;
-    letter-spacing:1px;
+    font-size:14px;
+    letter-spacing:2px;
     text-transform:uppercase;
     font-weight:700;
     cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    box-shadow:0 0 20px rgba(212, 175, 55, 0.6);
 }
 
 .wishes-grid{
-    width:100%;
-    max-height:180px;
-    overflow-y:auto;
-    margin-top:15px;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
+    max-width:850px;
+    margin:40px auto 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
+    gap:20px;
 }
 
 .wish-card{
     background:#161616;
     border:1px solid #d4af37;
-    padding:10px;
+    padding:20px;
     border-radius:6px;
     text-align:left;
 }
 
 .wish-card h4{
     font-family:'Cinzel Decorative', serif;
-    font-size:14px;
+    font-size:18px;
     color:#d4af37;
+    margin-bottom:8px;
 }
 
 .wish-card p{
-    font-size:13px;
+    font-size:15px;
     color:#f4e3b2;
+    line-height:1.6;
 }
 
-/* NEXT/PREV NAVIGATION BUTTONS */
-.nav-controls {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 25px;
-    z-index: 100;
+.wish-card .date-tag{
+    font-size:11px;
+    color:#d4af37;
+    margin-top:12px;
+    display:block;
 }
 
-.nav-btn {
-    background: linear-gradient(135deg, #bf953f, #aa771c);
-    color: #000;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
-    transition: transform 0.2s, opacity 0.3s;
+.footer{
+    padding:70px 20px;
+    background:#000000;
+    border-top:1px solid #d4af37;
+    text-align:center;
 }
 
-.nav-btn:hover {
-    transform: scale(1.05);
+.footer .names{
+    font-size:32px;
 }
 
-.nav-btn.hidden {
-    opacity: 0;
-    pointer-events: none;
+.footer p{
+    margin-top:20px;
+    font-size:13px;
+    letter-spacing:3px;
+    color:#d4af37;
+}
+
+@media(max-width:768px){
+    .detail-grid{
+        grid-template-columns:1fr;
+        max-width:400px;
+    }
+    section{
+        padding:50px 15px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="card-container">
+<!-- CAR SLIDER LOCK GATE -->
+<div id="gatekeeper">
+    <div class="gate-names gold-text">Jagath & Sulochana</div>
+    <div class="gate-sub">Royal Wedding Invitation</div>
 
-    <!-- CAR SLIDER LOCK GATE -->
-    <div id="gatekeeper">
-        <div class="gate-names gold-text">Jagath & Sulochana</div>
-        <div class="gate-sub">Royal Wedding Invitation</div>
-
-        <div class="slider-container" id="sliderContainer">
-            <div class="slider-text">Slide Car to Open</div>
-            <div class="car-slider-btn" id="carBtn">
-                <i class="fa-solid fa-car-side"></i>
-            </div>
+    <div class="slider-container" id="sliderContainer">
+        <div class="slider-text">Slide Car to Open</div>
+        <div class="car-slider-btn" id="carBtn">
+            <i class="fa-solid fa-car-side"></i>
         </div>
     </div>
+</div>
 
-    <!-- PAGE 1: HERO -->
-    <div class="page active" id="page1">
-        <i class="fa-solid fa-crown animated-icon anim-item delay-1"></i>
-        <div class="small anim-item delay-1">Together with their families</div>
+<!-- MAIN HERO SECTION -->
+<div class="hero page-border">
+    <div class="hero-content reveal">
+        <i class="fa-solid fa-crown animated-icon"></i>
+        <div class="small reveal-text delay-1">Together with their families</div>
 
-        <div class="names gold-text anim-item delay-2">
+        <div class="names gold-text reveal-text delay-2">
             Jagath
             <div class="amp">&</div>
             Sulochana
         </div>
 
-        <div class="date anim-item delay-2">
+        <div class="date reveal-text delay-3">
             21 • OCTOBER • 2026
         </div>
+    </div>
 
-        <div class="couple-stage anim-item delay-3">
-            <div class="love-heart">❤️</div>
+    <div class="couple-stage reveal delay-1">
+        <div class="love-heart"></div>
 
-            <div class="groom-wrapper">
-                <svg class="couple-img" viewBox="0 0 120 220">
-                    <path d="M45 25 L60 5 L75 25 L68 28 L60 18 L52 28 Z" fill="#D4AF37"/>
-                    <circle cx="60" cy="8" r="3" fill="#D4AF37"/>
-                    <circle cx="60" cy="38" r="14" fill="#E8BEAC"/>
-                    <path d="M35 55 Q60 48 85 55 L90 115 Q60 120 30 115 Z" fill="#161616"/>
-                    <path d="M60 52 L60 118 M45 60 L75 60 M40 80 L80 80 M42 100 L78 100" stroke="#D4AF37" stroke-width="2.5"/>
-                    <path d="M30 55 C20 60 20 75 35 75 Z" fill="#D4AF37"/>
-                    <path d="M90 55 C100 60 100 75 85 75 Z" fill="#D4AF37"/>
-                    <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
-                    <path d="M85 85 Q98 105 108 120" stroke="#E8BEAC" stroke-width="6" stroke-linecap="round"/>
-                </svg>
-            </div>
+        <div class="groom-wrapper">
+            <svg class="couple-img" viewBox="0 0 120 220">
+                <path d="M45 25 L60 5 L75 25 L68 28 L60 18 L52 28 Z" fill="#D4AF37"/>
+                <circle cx="60" cy="8" r="3" fill="#D4AF37"/>
+                <circle cx="60" cy="38" r="14" fill="#E8BEAC"/>
+                <path d="M35 55 Q60 48 85 55 L90 115 Q60 120 30 115 Z" fill="#161616"/>
+                <path d="M60 52 L60 118 M45 60 L75 60 M40 80 L80 80 M42 100 L78 100" stroke="#D4AF37" stroke-width="2.5"/>
+                <path d="M30 55 C20 60 20 75 35 75 Z" fill="#D4AF37"/>
+                <path d="M90 55 C100 60 100 75 85 75 Z" fill="#D4AF37"/>
+                <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
+                <path d="M85 85 Q98 105 108 120" stroke="#E8BEAC" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+        </div>
 
-            <div class="bride-wrapper">
-                <svg class="couple-img" viewBox="0 0 120 220">
-                    <circle cx="60" cy="35" r="16" fill="#2B1B17"/>
-                    <path d="M48 28 Q60 20 72 28" stroke="#D4AF37" stroke-width="3" fill="none"/>
-                    <circle cx="60" cy="40" r="13" fill="#F3D0C1"/>
-                    <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#161616"/>
-                    <path d="M35 88 Q60 105 85 88" fill="#161616" stroke="#D4AF37" stroke-width="1.5"/>
-                    <path d="M50 55 Q60 75 70 55 M46 62 Q60 85 74 62" stroke="#D4AF37" stroke-width="2" fill="none"/>
-                    <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
-                    <path d="M45 120 Q60 200 75 120 M38 150 Q60 210 82 150" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-                    <path d="M38 85 Q22 105 12 120" stroke="#F3D0C1" stroke-width="5" stroke-linecap="round"/>
-                </svg>
-            </div>
+        <div class="bride-wrapper">
+            <svg class="couple-img" viewBox="0 0 120 220">
+                <circle cx="60" cy="35" r="16" fill="#2B1B17"/>
+                <path d="M48 28 Q60 20 72 28" stroke="#D4AF37" stroke-width="3" fill="none"/>
+                <circle cx="60" cy="40" r="13" fill="#F3D0C1"/>
+                <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#161616"/>
+                <path d="M35 88 Q60 105 85 88" fill="#161616" stroke="#D4AF37" stroke-width="1.5"/>
+                <path d="M50 55 Q60 75 70 55 M46 62 Q60 85 74 62" stroke="#D4AF37" stroke-width="2" fill="none"/>
+                <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
+                <path d="M45 120 Q60 200 75 120 M38 150 Q60 210 82 150" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
+                <path d="M38 85 Q22 105 12 120" stroke="#F3D0C1" stroke-width="5" stroke-linecap="round"/>
+            </svg>
         </div>
     </div>
 
-    <!-- PAGE 2: MESSAGE -->
-    <div class="page" id="page2">
-        <i class="fa-solid fa-heart animated-icon anim-item delay-1"></i>
-        <div class="small anim-item delay-1">Wedding Invitation</div>
-        <h2 class="section-title gold-text anim-item delay-2">We Are Getting Married</h2>
-        <div class="line anim-item delay-2"></div>
-        <p class="message anim-item delay-3">
-            With joyful hearts and the blessings of our families,
-            we invite you to celebrate the beginning of our
-            beautiful journey together.
-        </p>
+    <div class="scroll">
+        <i class="fa-solid fa-angles-down animated-icon" style="font-size:20px;"></i><br>
+        SCROLL DOWN
     </div>
+</div>
 
-    <!-- PAGE 3: CEREMONY DETAILS -->
-    <div class="page" id="page3">
-        <i class="fa-solid fa-glass-cheers animated-icon anim-item delay-1"></i>
-        <div class="small anim-item delay-1">Program & Schedule</div>
-        <h2 class="section-title gold-text anim-item delay-1">Ceremony Details</h2>
-        <div class="line anim-item delay-1"></div>
+<!-- INVITATION MESSAGE -->
+<section class="page-border reveal">
+    <i class="fa-solid fa-heart animated-icon"></i>
+    <div class="small reveal-text">Wedding Invitation</div>
+    <h2 class="section-title gold-text reveal-text delay-1">We Are Getting Married</h2>
+    <div class="line"></div>
+    <p class="message reveal-text delay-2">
+        With joyful hearts and the blessings of our families,
+        we invite you to celebrate the beginning of our
+        beautiful journey together.
+    </p>
+</section>
 
-        <div class="detail-grid anim-item delay-2">
-            <div class="card">
-                <h3 class="gold-text"><i class="fa-solid fa-hands-praying"></i> Poruwa Ceremony</h3>
-                <p>Wednesday, 21st Oct 2026 at <span class="time-highlight">9:14 AM</span></p>
-            </div>
+<!-- DETAILS & CEREMONY TIMES -->
+<section class="details page-border reveal">
+    <i class="fa-solid fa-glass-cheers animated-icon"></i>
+    <div class="small reveal-text">Program & Schedule</div>
+    <h2 class="section-title gold-text reveal-text delay-1">Ceremony Details</h2>
+    <div class="line"></div>
 
-            <div class="card">
-                <h3 class="gold-text"><i class="fa-solid fa-pen-nib"></i> Registration</h3>
-                <p>Official Signing at <span class="time-highlight">10:19 AM</span></p>
-            </div>
-
-            <div class="card">
-                <h3 class="gold-text"><i class="fa-solid fa-utensils"></i> Reception</h3>
-                <p>Celebration & Lunch at <span class="time-highlight">10:40 AM Onwards</span></p>
-            </div>
-        </div>
-    </div>
-
-    <!-- PAGE 4: COUNTDOWN -->
-    <div class="page" id="page4">
-        <i class="fa-solid fa-clock animated-icon anim-item delay-1"></i>
-        <div class="small anim-item delay-1">Counting the moments</div>
-        <h2 class="section-title gold-text anim-item delay-2">Until We Say “I Do”</h2>
-        <div class="line anim-item delay-2"></div>
-
-        <div class="timer anim-item delay-3">
-            <div class="time-box"><strong id="days">0</strong><span>DAYS</span></div>
-            <div class="time-box"><strong id="hours">0</strong><span>HOURS</span></div>
-            <div class="time-box"><strong id="minutes">0</strong><span>MINUTES</span></div>
-            <div class="time-box"><strong id="seconds">0</strong><span>SECONDS</span></div>
-        </div>
-    </div>
-
-    <!-- PAGE 5: GALLERY -->
-    <div class="page" id="page5">
-        <i class="fa-solid fa-camera-retro animated-icon anim-item delay-1"></i>
-        <div class="small anim-item delay-1">Our Moments</div>
-        <h2 class="section-title gold-text anim-item delay-1">Pre-Shoot Gallery</h2>
-        <div class="line anim-item delay-1"></div>
-
-        <div class="gallery-grid anim-item delay-2">
-            <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1lu-Vek58A86oHPs7GAKV6noea-qtLaNE" alt="Pre-shoot 1"></div>
-            <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1eAtA9e_avMWk0wBteuzIHhwS_lF2fcyT" alt="Pre-shoot 2"></div>
-            <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1H9jyWqSTDz_zO-R-x_mpGpmcCTC1i1DZ" alt="Pre-shoot 3"></div>
-            <div class="gallery-item"><img src="https://lh3.googleusercontent.com/d/1cA-Lk3iJQhGsqAxP9Axm0m_ijOUr6pib" alt="Pre-shoot 4"></div>
-        </div>
-    </div>
-
-    <!-- PAGE 6: MAP -->
-    <div class="page" id="page6">
-        <i class="fa-solid fa-map-location-dot animated-icon anim-item delay-1"></i>
-        <div class="small anim-item delay-1">Location Details</div>
-        <h2 class="section-title gold-text anim-item delay-1">Marabedda Gardens</h2>
-        <p class="message anim-item delay-2" style="font-size:13px;">58 Dimbulkumbura Road, Rikillagaskada</p>
-
-        <div class="map-container anim-item delay-2">
-            <iframe src="https://maps.google.com/maps?q=Marabedda%20Gardens%20Resort%20Rikillagaskada&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+    <div class="detail-grid">
+        <div class="card reveal-text delay-1">
+            <i class="fa-solid fa-hands-praying animated-icon"></i>
+            <h3 class="gold-text">Poruwa Ceremony</h3>
+            <p>Wednesday<br>21st October 2026<br><span class="time-highlight">9:14 AM</span></p>
         </div>
 
-        <a class="map-btn anim-item delay-3" href="https://maps.app.goo.gl/i33fomVz2q7ouui37" target="_blank"><i class="fa-solid fa-diamond-turn-right"></i> OPEN IN MAPS</a>
-    </div>
-
-    <!-- PAGE 7: RSVP -->
-    <div class="page" id="page7">
-        <i class="fa-solid fa-envelope-open-text animated-icon anim-item delay-1"></i>
-        <div class="small anim-item delay-1">Are You Coming?</div>
-        <h2 class="section-title gold-text anim-item delay-1">RSVP Now</h2>
-
-        <div class="form-box anim-item delay-2">
-            <div class="form-group">
-                <label>Your Name / නම</label>
-                <input type="text" id="rsvpName" class="form-control" placeholder="Enter full name">
-            </div>
-
-            <div class="form-group">
-                <label>Send RSVP To</label>
-                <select id="rsvpPhone" class="form-control">
-                    <option value="94773915626">Sulochana</option>
-                    <option value="94713862038">Jagath</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Guests / සංඛ්‍යාව</label>
-                <select id="rsvpGuests" class="form-control">
-                    <option value="1 Person">1 Person</option>
-                    <option value="2 Persons">2 Persons</option>
-                    <option value="Family / 3+ Persons">Family / 3+ Persons</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Attendance / පැමිණීම</label>
-                <select id="rsvpStatus" class="form-control">
-                    <option value="Joyfully Accepts">Joyfully Accepts (පැමිණෙමි)</option>
-                    <option value="Regretfully Declines">Regretfully Declines (නොපැමිණේ)</option>
-                </select>
-            </div>
-
-            <button class="submit-btn" onclick="sendRSVP()"><i class="fa-brands fa-whatsapp"></i> Send RSVP</button>
-        </div>
-    </div>
-
-    <!-- PAGE 8: WISHES -->
-    <div class="page" id="page8">
-        <i class="fa-solid fa-comment-dots animated-icon anim-item delay-1"></i>
-        <div class="small anim-item delay-1">Blessings Wall</div>
-        <h2 class="section-title gold-text anim-item delay-1">Leave Your Wishes</h2>
-
-        <div class="form-box anim-item delay-2">
-            <div class="form-group">
-                <input type="text" id="wishName" class="form-control" placeholder="Your name">
-            </div>
-            <div class="form-group">
-                <textarea id="wishMessage" class="form-control" rows="2" placeholder="Write your blessings..."></textarea>
-            </div>
-            <button class="submit-btn" id="postWishBtn" onclick="postWish()"><i class="fa-solid fa-paper-plane"></i> Post Wish</button>
+        <div class="card reveal-text delay-2">
+            <i class="fa-solid fa-pen-nib animated-icon"></i>
+            <h3 class="gold-text">Registration</h3>
+            <p>Official Signing<br>21st October 2026<br><span class="time-highlight">10:19 AM</span></p>
         </div>
 
-        <div class="wishes-grid anim-item delay-3" id="wishesGrid"></div>
+        <div class="card reveal-text delay-3">
+            <i class="fa-solid fa-utensils animated-icon"></i>
+            <h3 class="gold-text">Reception</h3>
+            <p>Celebration & Lunch<br>21st October 2026<br><span class="time-highlight">10:40 AM Onwards</span></p>
+        </div>
+    </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown page-border reveal">
+    <i class="fa-solid fa-clock animated-icon"></i>
+    <div class="small reveal-text">Counting the moments</div>
+    <h2 class="section-title gold-text reveal-text delay-1">Until We Say “I Do”</h2>
+    <div class="line"></div>
+
+    <div class="timer reveal-text delay-2">
+        <div class="time-box"><strong id="days">0</strong><span>DAYS</span></div>
+        <div class="time-box"><strong id="hours">0</strong><span>HOURS</span></div>
+        <div class="time-box"><strong id="minutes">0</strong><span>MINUTES</span></div>
+        <div class="time-box"><strong id="seconds">0</strong><span>SECONDS</span></div>
+    </div>
+</section>
+
+<!-- PRE-SHOOT GALLERY -->
+<section class="gallery-section page-border reveal">
+    <i class="fa-solid fa-camera-retro animated-icon"></i>
+    <div class="small reveal-text">Our Moments</div>
+    <h2 class="section-title gold-text reveal-text delay-1">Pre-Shoot Gallery</h2>
+    <div class="line"></div>
+
+    <div class="gallery-grid">
+    <div class="gallery-item reveal-text delay-1">
+        <img src="https://lh3.googleusercontent.com/d/1lu-Vek58A86oHPs7GAKV6noea-qtLaNE" alt="Pre-shoot 1">
+    </div>
+    <div class="gallery-item reveal-text delay-2">
+        <img src="https://lh3.googleusercontent.com/d/1eAtA9e_avMWk0wBteuzIHhwS_lF2fcyT" alt="Pre-shoot 2">
+    </div>
+    <div class="gallery-item reveal-text delay-1">
+        <img src="https://lh3.googleusercontent.com/d/1H9jyWqSTDz_zO-R-x_mpGpmcCTC1i1DZ" alt="Pre-shoot 3">
+    </div>
+    <div class="gallery-item reveal-text delay-2">
+        <img src="https://lh3.googleusercontent.com/d/1cA-Lk3iJQhGsqAxP9Axm0m_ijOUr6pib" alt="Pre-shoot 4">
+    </div>
+    </div>
+</section>
+
+<!-- LOCATION / MAP -->
+<section class="venue-section page-border reveal">
+    <i class="fa-solid fa-map-location-dot animated-icon"></i>
+    <div class="small reveal-text">Location Details</div>
+    <h2 class="section-title gold-text reveal-text delay-1">Marabedda Gardens Resort</h2>
+    <div class="line"></div>
+    <p class="message reveal-text delay-2">58 Dimbulkumbura Road, Rikillagaskada 20730</p>
+
+    <div class="map-container reveal-text delay-2">
+        <iframe src="https://maps.google.com/maps?q=Marabedda%20Gardens%20Resort%20Rikillagaskada&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <!-- NAVIGATION BUTTONS -->
-    <div class="nav-controls">
-        <button class="nav-btn hidden" id="prevBtn" onclick="changePage(-1)">
-            <i class="fa-solid fa-arrow-left"></i>
-            <span>පසුපසට</span>
-        </button>
+    <a class="map-btn reveal-text delay-3" href="https://maps.app.goo.gl/i33fomVz2q7ouui37" target="_blank"><i class="fa-solid fa-diamond-turn-right"></i> OPEN IN GOOGLE MAPS</a>
+</section>
 
-        <button class="nav-btn" id="nextBtn" onclick="changePage(1)">
-            <span id="nextText">ඊළඟ පිටුව</span>
-            <i class="fa-solid fa-arrow-right" id="nextIcon"></i>
-        </button>
+<!-- RSVP SECTION -->
+<section class="rsvp-section page-border reveal">
+    <i class="fa-solid fa-envelope-open-text animated-icon"></i>
+    <div class="small reveal-text">Are You Coming?</div>
+    <h2 class="section-title gold-text reveal-text delay-1">RSVP Now</h2>
+    <div class="line"></div>
+
+    <div class="form-box reveal-text delay-2">
+        <div class="form-group">
+            <label>Your Name / නම</label>
+            <input type="text" id="rsvpName" class="form-control" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Send RSVP To / යැවිය යුතු අංකය</label>
+            <select id="rsvpPhone" class="form-control">
+                <option value="94773915626">Sulochana (94773915626)</option>
+                <option value="94713862038">Jagath (94713862038)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Number of Guests / සංඛ්‍යාව</label>
+            <select id="rsvpGuests" class="form-control">
+                <option value="1 Person">1 Person</option>
+                <option value="2 Persons">2 Persons</option>
+                <option value="Family / 3+ Persons">Family / 3+ Persons</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Will You Attend? / පැමිණීම</label>
+            <select id="rsvpStatus" class="form-control">
+                <option value="Joyfully Accepts">Joyfully Accepts (පැමිණෙමි)</option>
+                <option value="Regretfully Declines">Regretfully Declines (නොපැමිණේ)</option>
+            </select>
+        </div>
+
+        <button class="submit-btn" onclick="sendRSVP()"><i class="fa-brands fa-whatsapp"></i> Send RSVP via WhatsApp</button>
+    </div>
+</section>
+
+<!-- WISHES SECTION -->
+<section class="wishes-section page-border reveal">
+    <i class="fa-solid fa-comment-dots animated-icon"></i>
+    <div class="small reveal-text">Blessings Wall</div>
+    <h2 class="section-title gold-text reveal-text delay-1">Leave Your Wishes</h2>
+    <div class="line"></div>
+
+    <div class="form-box reveal-text delay-2" style="margin-bottom:40px;">
+        <div class="form-group">
+            <label>Your Name / නම</label>
+            <input type="text" id="wishName" class="form-control" placeholder="Your name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Your Wish / සුබ පැතුම</label>
+            <textarea id="wishMessage" class="form-control" rows="4" placeholder="Write your warm blessings..." required></textarea>
+        </div>
+
+        <button class="submit-btn" id="postWishBtn" onclick="postWish()"><i class="fa-solid fa-paper-plane"></i> Post Wish</button>
     </div>
 
+    <!-- WISHES DISPLAY GRID -->
+    <div class="wishes-grid" id="wishesGrid">
+        <!-- Wishes dynamically load from Google Sheet -->
+    </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer reveal">
+    <div class="names gold-text reveal-text">Jagath & Sulochana</div>
+    <p class="reveal-text delay-1">21 OCTOBER 2026 • OUR FOREVER BEGINS</p>
 </div>
 
 <script>
+// REPLACE WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
 const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
-let currentPage = 1;
-const totalPages = 8;
-
-function changePage(direction) {
-    document.getElementById(`page${currentPage}`).classList.remove('active');
-
-    currentPage += direction;
-
-    if (currentPage > totalPages) {
-        currentPage = 1;
-    } else if (currentPage < 1) {
-        currentPage = totalPages;
-    }
-
-    document.getElementById(`page${currentPage}`).classList.add('active');
-    updateNavButtons();
-}
-
-function updateNavButtons() {
-    const prevBtn = document.getElementById('prevBtn');
-    const nextText = document.getElementById('nextText');
-    const nextIcon = document.getElementById('nextIcon');
-
-    // Show/Hide Previous Button
-    if (currentPage === 1) {
-        prevBtn.classList.add('hidden');
-    } else {
-        prevBtn.classList.remove('hidden');
-    }
-
-    // Change Next Button text/icon on last page
-    if (currentPage === totalPages) {
-        nextText.textContent = "මුලට යන්න";
-        nextIcon.className = "fa-solid fa-rotate-right";
-    } else {
-        nextText.textContent = "ඊළඟ පිටුව";
-        nextIcon.className = "fa-solid fa-arrow-right";
-    }
-}
-
-// CAR SLIDER LOCK GATE
+// CAR SLIDER INTERACTION
 const carBtn = document.getElementById("carBtn");
 const sliderContainer = document.getElementById("sliderContainer");
 let isDragging = false;
-let startX, maxSlide;
+let startX, currentX, maxSlide;
 
 function startDrag(e) {
     isDragging = true;
@@ -824,9 +847,26 @@ window.addEventListener("touchend", stopDrag);
 function openInvitation(){
     document.getElementById("gatekeeper").classList.add("open");
     document.body.classList.add("opened");
+    setTimeout(triggerScrollAnimations, 300);
 }
 
-// COUNTDOWN TIMER
+// SCROLL ANIMATION OBSERVER
+function triggerScrollAnimations() {
+    const reveals = document.querySelectorAll('.reveal, .reveal-text');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    reveals.forEach(el => observer.observe(el));
+}
+
 const weddingDate = new Date("October 21, 2026 09:14:00").getTime();
 
 function countdown(){
@@ -850,7 +890,6 @@ function countdown(){
 countdown();
 setInterval(countdown, 1000);
 
-// RSVP FUNCTION
 function sendRSVP(){
     const name = document.getElementById("rsvpName").value;
     const phone = document.getElementById("rsvpPhone").value;
@@ -866,7 +905,7 @@ function sendRSVP(){
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
 }
 
-// WISHES FUNCTIONS
+// GOOGLE SHEETS WISHES FUNCTIONS
 async function loadWishes() {
     if(!GOOGLE_SCRIPT_URL || GOOGLE_SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") return;
     
@@ -878,10 +917,11 @@ async function loadWishes() {
 
         wishes.reverse().forEach(w => {
             const newCard = document.createElement("div");
-            newCard.className = "wish-card";
-            newCard.innerHTML = `<h4>${escapeHtml(w.name)}</h4><p>${escapeHtml(w.wish)}</p>`;
+            newCard.className = "wish-card reveal-text";
+            newCard.innerHTML = `<h4>${escapeHtml(w.name)}</h4><p>${escapeHtml(w.wish)}</p><span class="date-tag">${escapeHtml(w.date)}</span>`;
             grid.appendChild(newCard);
         });
+        triggerScrollAnimations();
     } catch(err) {
         console.error("Error loading wishes:", err);
     }
@@ -893,7 +933,7 @@ async function postWish(){
     const btn = document.getElementById("postWishBtn");
 
     if(!name || !msg){
-        alert("Please fill in both name and wish.");
+        alert("Please fill in both your name and wish message.");
         return;
     }
 
@@ -903,7 +943,7 @@ async function postWish(){
     }
 
     btn.disabled = true;
-    btn.innerHTML = 'Posting...';
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Posting...';
 
     try {
         await fetch(GOOGLE_SCRIPT_URL, {
@@ -923,7 +963,7 @@ async function postWish(){
         }, 1500);
 
     } catch(err) {
-        alert("Error saving wish.");
+        alert("Error saving wish. Please try again.");
         btn.disabled = false;
         btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Post Wish';
     }
@@ -934,8 +974,11 @@ function escapeHtml(text) {
     return String(text).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-window.onload = loadWishes;
+window.onload = () => {
+    loadWishes();
+    triggerScrollAnimations();
+};
 </script>
 
 </body>
-</html>
+            </html>
