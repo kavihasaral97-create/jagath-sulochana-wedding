@@ -125,7 +125,7 @@ body{
     50%{ opacity:1; }
 }
 
-/* ---------------- SCROLL ANIMATIONS (TEXT & SECTION REVEAL) ---------------- */
+/* ---------------- SCROLL ANIMATIONS ---------------- */
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -148,7 +148,6 @@ body{
     transform: translateY(0);
 }
 
-/* Delays for staggered animations */
 .delay-1 { transition-delay: 0.2s; }
 .delay-2 { transition-delay: 0.4s; }
 .delay-3 { transition-delay: 0.6s; }
@@ -214,52 +213,44 @@ body{
     50% { transform: translateY(-8px) scale(1.15); filter: drop-shadow(0 0 8px #fcf6ba); }
 }
 
+/* CARTOON COUPLE STAGE & FLOATING ANIMATION */
 .couple-stage{
     margin-top:25px;
-    height:220px;
+    height:230px;
     position:relative;
-    width:320px;
+    width:100%;
+    max-width:320px;
     display:flex;
     justify-content:center;
-    align-items:flex-end;
+    align-items:center;
     z-index:2;
 }
 
-.groom-wrapper, .bride-wrapper{
-    position:absolute;
-    bottom:0;
-    transition:transform 2s cubic-bezier(0.25, 1, 0.5, 1);
+.custom-couple-img {
+    max-height: 220px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.5s ease;
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
 }
 
-.groom-wrapper{ transform:translateX(-140px); }
-.bride-wrapper{ transform:translateX(140px); }
-
-body.opened .groom-wrapper{ transform:translateX(-25px); }
-body.opened .bride-wrapper{ transform:translateX(25px); }
-
-.couple-img{
-    height:190px;
-    filter:drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
+body.opened .custom-couple-img {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    animation: floatGlow 3.5s ease-in-out infinite alternate 1.5s;
 }
 
-.love-heart{
-    position:absolute;
-    top:10px;
-    font-size:32px;
-    opacity:0;
-    transform:scale(0);
-    transition:transform 0.8s ease 1.8s, opacity 0.8s ease 1.8s;
-}
-
-body.opened .love-heart{
-    opacity:1;
-    transform:scale(1.2);
-    animation:heartbeat 1.5s infinite 2.6s;
-}
-
-@keyframes heartbeat{
-    0%, 100%{ transform:scale(1.2); }
-    50%{ transform:scale(1.4); }
+@keyframes floatGlow {
+    0% {
+        transform: translateY(0px) scale(1);
+        filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+    }
+    100% {
+        transform: translateY(-8px) scale(1.02);
+        filter: drop-shadow(0 0 18px rgba(212, 175, 55, 0.7));
+    }
 }
 
 .scroll{
@@ -588,36 +579,9 @@ section{
         </div>
     </div>
 
+    <!-- 3D CARTOON COUPLE STAGE -->
     <div class="couple-stage reveal delay-1">
-        <div class="love-heart"></div>
-
-        <div class="groom-wrapper">
-            <svg class="couple-img" viewBox="0 0 120 220">
-                <path d="M45 25 L60 5 L75 25 L68 28 L60 18 L52 28 Z" fill="#D4AF37"/>
-                <circle cx="60" cy="8" r="3" fill="#D4AF37"/>
-                <circle cx="60" cy="38" r="14" fill="#E8BEAC"/>
-                <path d="M35 55 Q60 48 85 55 L90 115 Q60 120 30 115 Z" fill="#161616"/>
-                <path d="M60 52 L60 118 M45 60 L75 60 M40 80 L80 80 M42 100 L78 100" stroke="#D4AF37" stroke-width="2.5"/>
-                <path d="M30 55 C20 60 20 75 35 75 Z" fill="#D4AF37"/>
-                <path d="M90 55 C100 60 100 75 85 75 Z" fill="#D4AF37"/>
-                <path d="M32 115 Q60 125 88 115 L95 210 Q60 220 25 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
-                <path d="M85 85 Q98 105 108 120" stroke="#E8BEAC" stroke-width="6" stroke-linecap="round"/>
-            </svg>
-        </div>
-
-        <div class="bride-wrapper">
-            <svg class="couple-img" viewBox="0 0 120 220">
-                <circle cx="60" cy="35" r="16" fill="#2B1B17"/>
-                <path d="M48 28 Q60 20 72 28" stroke="#D4AF37" stroke-width="3" fill="none"/>
-                <circle cx="60" cy="40" r="13" fill="#F3D0C1"/>
-                <path d="M40 55 Q60 50 80 55 L82 90 Q60 95 38 90 Z" fill="#161616"/>
-                <path d="M35 88 Q60 105 85 88" fill="#161616" stroke="#D4AF37" stroke-width="1.5"/>
-                <path d="M50 55 Q60 75 70 55 M46 62 Q60 85 74 62" stroke="#D4AF37" stroke-width="2" fill="none"/>
-                <path d="M38 90 Q60 98 82 90 L92 210 Q60 220 28 210 Z" fill="#080808" stroke="#D4AF37" stroke-width="2"/>
-                <path d="M45 120 Q60 200 75 120 M38 150 Q60 210 82 150" stroke="#D4AF37" stroke-width="1.5" fill="none"/>
-                <path d="M38 85 Q22 105 12 120" stroke="#F3D0C1" stroke-width="5" stroke-linecap="round"/>
-            </svg>
-        </div>
+        <img src="https://lh3.googleusercontent.com/d/1q4v0kvd1a64TJreR1y7DkYWbtGnPFLFu" alt="3D Cartoon Couple" class="custom-couple-img">
     </div>
 
     <div class="scroll">
@@ -696,11 +660,14 @@ section{
     <div class="gallery-item reveal-text delay-2">
         <img src="https://lh3.googleusercontent.com/d/1eAtA9e_avMWk0wBteuzIHhwS_lF2fcyT" alt="Pre-shoot 2">
     </div>
-<div class="gallery-item reveal-text delay-1">
-    <img src="https://lh3.googleusercontent.com/d/1Jqlzk_mW33tXcDzUBQ3Uqplo8qQhBB4e" alt="Pre-shoot 5">
-</div>
+    <div class="gallery-item reveal-text delay-1">
+        <img src="https://lh3.googleusercontent.com/d/1H9jyWqSTDz_zO-R-x_mpGpmcCTC1i1DZ" alt="Pre-shoot 3">
+    </div>
     <div class="gallery-item reveal-text delay-2">
         <img src="https://lh3.googleusercontent.com/d/1cA-Lk3iJQhGsqAxP9Axm0m_ijOUr6pib" alt="Pre-shoot 4">
+    </div>
+    <div class="gallery-item reveal-text delay-1">
+        <img src="https://lh3.googleusercontent.com/d/1Jqlzk_mW33tXcDzUBQ3Uqplo8qQhBB4e" alt="Pre-shoot 5">
     </div>
     </div>
 </section>
